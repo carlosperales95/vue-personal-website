@@ -10,6 +10,14 @@
   <router-view />
 
   <footer class="footer">
+    <div class="site-info-col">
+      <h3>Where to find me:</h3>
+      <a href="https://www.linkedin.com/in/carlos-perales95/">LinkedIn</a>
+      <a>GlassDoor</a>
+      <a href="https://github.com/carlosperales95">Github</a>
+      <a href="https://www.hackerrank.com/profile/carlos_perales95">HackerRank</a>
+      <a href="https://app.hackthebox.com/profile/overview">HackInTheBox</a>
+    </div>
     <div class="author-col">
       <pre>{{ frogASCII }}</pre>
       <p>Site Made by: SapoKode</p>
@@ -108,10 +116,9 @@ nav a {
 footer {
   color: #fff3f3;
   background-color: #111111;
-  padding: 1rem 1rem;
+  padding: 1rem 6rem 0rem 8rem;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  font-size: 15px;
+  grid-template-columns: 1fr 2fr 1fr;
 }
 
 pre {
@@ -120,9 +127,31 @@ pre {
 
 .author-col {
   grid-column-start: 3;
+  font-size: 10px;
+}
+
+
+.site-info-col {
+  grid-column-start: 1;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-info-col a {
+  margin-bottom: 1rem;
+  color: #fff3f3;
+  text-decoration: none;
+}
+
+.site-info-col a:hover {
+  color: #E67E22;
+  cursor: pointer;
 }
 
 .author-col p {
   text-align: center;
+  font-size: 15px;
+  font-weight: bold;
 }
 </style>
