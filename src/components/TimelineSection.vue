@@ -21,10 +21,12 @@
                 class="event"
                 :style="{
                     'display': `${event.show ? 'block' : 'none'}`,
-                    'top': `${event.threshold - 100}px`
+                    
                 }"
             >
                 <h3>{{ event.name }}</h3>
+                <h5>{{ event.location }}</h5>
+                <h5>{{ event.year }}</h5>
                 <p>{{ event.description }}</p>
             </div>
         </div>
@@ -45,30 +47,82 @@ export default {
         const events = ref([
             {
                 id: 1,
-                name: 'Event 1',
+                type: 'studies',
+                year: 2015,
+                location: 'La Salle Bilbao',
+                name: 'High School',
                 description: 'Description of Event 1',
                 threshold: 200,
                 show: false
             },
             {
-                id: 2,
-                name: 'Event 2',
-                description: 'Description of Event 2',
-                threshold: 250,
-                show: false
-            },
-            {
                 id: 3,
-                name: 'Event 3',
-                description: 'Description of Event 4',
-                threshold: 300,
+                type: 'work',
+                year: 2017,
+                location: 'DeustoTech',
+                name: 'Internship DeustoTech',
+                description: 'Internship in Uni',
+                threshold: 400,
                 show: false
             },
             {
                 id: 4,
-                name: 'Event 4',
-                description: 'Description of Event 4',
+                type: 'work',
+                year: 2018,
+                location: 'WeNite',
+                name: 'Internship WeNite',
+                description: 'Another internship in Uni',
+                threshold: 600,
+                show: false
+            },
+            {
+                id: 5,
+                type: 'studies',
+                year: 2018,
+                location: 'WeNite',
+                name: 'Graduate CS degree',
+                description: 'Finished degree',
                 threshold: 800,
+                show: false
+            },
+            {
+                id: 6,
+                type: 'work',
+                year: 2019,
+                location: 'University of Deusto',
+                name: 'Software Engineer at Luggo',
+                description: 'Part time job luggo',
+                threshold: 1000,
+                show: false
+            },
+            {
+                id: 7,
+                type: 'work',
+                year: 2015,
+                location: 'University of Bologna',
+                name: 'Traineeship in Unibo',
+                description: 'Traineeship in bolo',
+                threshold: 1200,
+                show: false
+            },
+            {
+                id: 8,
+                type: 'studies',
+                year: 2021,
+                location: 'VU + UvA',
+                name: 'Graduate Msc Software Engineering',
+                description: 'Finished Masters',
+                threshold: 1400,
+                show: false
+            },
+            {
+                id: 9,
+                type: 'work',
+                year: 2015,
+                location: 'AMS',
+                name: 'Technical Support Engineer',
+                description: 'Adyen',
+                threshold: 1800,
                 show: false
             },
         ]);
@@ -95,7 +149,7 @@ export default {
                 });
             }
 
-            line.height += 250;
+            line.height += 200;
             window.scrollBy({
                 top: 400,
                 left: 0,
@@ -172,10 +226,27 @@ export default {
 }
 
 .event {
-    top: -100px;
+    top: 0;
     border: 1px solid #111111;
     padding: 1rem;
     position: relative;
+    margin-bottom: 2rem;
+}
+
+.event h3 {
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.event p {
+    font-size: 18px;
+}
+
+.event h5 {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 </style>
