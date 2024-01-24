@@ -79,6 +79,10 @@ export default {
     visibility: visible;
 }
 
+.start-container.revealed .marker-line .marker::before,
+.start-container.revealed .marker-line .marker::after {
+    display: none;
+}
 
 .year {
     vertical-align: text-top;
