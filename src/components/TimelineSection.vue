@@ -1,46 +1,62 @@
 <template>
-    <section class="events section" @click.prevent="growLine">
+    <section class="events section">
         <h2>Event Line</h2>
-        <div
-            class="line-container"
-            :style="{'height': `${line.height + 200}px`}"
+
+        <event-row
+            :type="'start-container'"
+            :class="{ 'revealed': line.started }"
+            :clicked="line.started"
+            @start-button="startTimeline"
+            :empty="true"
         >
-            <div class="line-column">
-                <span
-                    class="line"
-                    :class="{ 'completed': line.complete }"
-                    :style="{
-                        'height': `${line.height}px`,
-                    }"
-                ></span>
-            </div>
-            <div class="event-column">
-            <div
-                v-for="event in events"
-                :key="event.id"
-                class="event"
-                :style="{
-                    'display': `${event.show ? 'block' : 'none'}`,
-                    
-                }"
-            >
+            <template v-slot:year>
+                <h3> 1995 </h3>
+                <icon-baby/>
+            </template>
+        </event-row>
+        <event-row
+            v-for="event in events"
+            :key="event.id"
+            :class="{ 'revealed': event.show }"
+            :event="event"
+            :type="'event-container'"
+            :clicked="event.clicked"
+            @click-button="revealEvent"
+        >
+            <template v-slot:year>
+                <h3> {{ event.year }} </h3>
+            </template>
+            <template v-slot:event>
                 <h3>{{ event.name }}</h3>
                 <h5>{{ event.location }}</h5>
+                <h5>{{ event.type }}</h5>
                 <h5>{{ event.year }}</h5>
                 <p>{{ event.description }}</p>
-            </div>
-        </div>
-        </div>
+            </template>
+        </event-row>
+        <event-row
+            :type="'end-container'"
+            v-if="line.complete"
+            :empty="true"
+        ></event-row>
     </section>
 </template>
 <script>
-import { ref, reactive, watch } from 'vue'
+import { ref, reactive } from 'vue';
+import EventRow from './EventRow.vue';
+import IconBaby from './icons/IconBaby.vue';
+
+
 
 export default {
+    components: {
+        EventRow,
+        IconBaby
+    },
     setup() {
 
         const line = reactive({
-            height: 0,
+            started: false,
             complete: false
         });
 
@@ -52,116 +68,101 @@ export default {
                 location: 'La Salle Bilbao',
                 name: 'High School',
                 description: 'Description of Event 1',
-                threshold: 200,
-                show: false
+                show: false,
+                clicked: false
+            },
+            {
+                id: 2,
+                type: 'work',
+                year: 2016,
+                location: 'DeustoTech',
+                name: 'Internship DeustoTech',
+                description: 'Extracurricular internship in collaboration with Deustotech Lab, a research oriented development lab at the University of Deusto. I was responsible, together with another intern, for the development of several research academic projects.',
+                show: false,
+                clicked: false
             },
             {
                 id: 3,
                 type: 'work',
-                year: 2017,
-                location: 'DeustoTech',
-                name: 'Internship DeustoTech',
-                description: 'Internship in Uni',
-                threshold: 400,
-                show: false
+                year: 'January 2017',
+                location: 'WeNite',
+                name: 'Internship WeNite',
+                description: 'Curricular internship in collaboration with WeNite. Resposible for the front-end development, coding the solution with Node.js + HTML + CSS and translating it into iOS and Android app format using Apache Cordova. The goal was to develop the full pilot for their app, a nightlife app for iOS an Android.',
+                show: false,
+                clicked: false
             },
             {
                 id: 4,
-                type: 'work',
-                year: 2018,
-                location: 'WeNite',
-                name: 'Internship WeNite',
-                description: 'Another internship in Uni',
-                threshold: 600,
-                show: false
+                type: 'studies',
+                year: 'August 2017',
+                location: 'University of Deusto',
+                name: 'CS degree',
+                description: 'Completed the Computer Engineering Bachelors degree in the University of Deusto.',
+                show: false,
+                clicked: false
             },
             {
                 id: 5,
-                type: 'studies',
-                year: 2018,
-                location: 'WeNite',
-                name: 'Graduate CS degree',
-                description: 'Finished degree',
-                threshold: 800,
-                show: false
+                type: 'work',
+                year: 2019,
+                location: 'Luggo',
+                name: 'Full Stack Developer',
+                description: 'Part time job in the early stages of the company now known as Luggo, where I originally started as a front-end developer. Later on, I also assumed some of the backend development responsibilities, working as a full-stack developer for the rest of my stay.',
+                show: false,
+                clicked: false
             },
             {
                 id: 6,
                 type: 'work',
-                year: 2019,
-                location: 'University of Deusto',
-                name: 'Software Engineer at Luggo',
-                description: 'Part time job luggo',
-                threshold: 1000,
-                show: false
+                year: 2020,
+                location: 'University of Bologna',
+                name: 'Traineeship in Unibo',
+                description: 'Spent a full academic year in Bologna, Italy. During this time I followed a traineeship of 6 months, in which I carried out my master thesis on Machine Learning and Natural Language Processing.',
+                show: false,
+                clicked: false
             },
             {
                 id: 7,
-                type: 'work',
-                year: 2015,
-                location: 'University of Bologna',
-                name: 'Traineeship in Unibo',
-                description: 'Traineeship in bolo',
-                threshold: 1200,
-                show: false
+                type: 'studies',
+                year: 'June 2021',
+                location: 'VU + UvA',
+                name: 'Msc Degree',
+                description: 'Completed the Computer Science Masters degree, following the track of Software Engineering + Green IT. ',
+                show: false,
+                clicked: false
             },
             {
                 id: 8,
-                type: 'studies',
-                year: 2021,
-                location: 'VU + UvA',
-                name: 'Graduate Msc Software Engineering',
-                description: 'Finished Masters',
-                threshold: 1400,
-                show: false
-            },
-            {
-                id: 9,
                 type: 'work',
-                year: 2015,
-                location: 'AMS',
+                year: 'July 2021',
+                location: 'Adyen',
                 name: 'Technical Support Engineer',
-                description: 'Adyen',
-                threshold: 1800,
-                show: false
+                description: 'Current role',
+                show: false,
+                clicked: false
             },
         ]);
 
-        watch(line, () => {
-            events.value.forEach(element => {
-                if(element.threshold <= line.height)
-                    element.show = true;
-            });
-        });
-
-        const growLine = function () {
-            if(events.value.filter(ev => !ev.show).length === 0) {
-                line.complete = true;
-                return;
-            }
-
-            if(line.height === 0) {
-                const elem = document.querySelector('.line');
-                elem.scrollIntoView({
-                    behavior: "smooth",
-                    block: "end",
-                    inline: "nearest"
-                });
-            }
-
-            line.height += 200;
-            window.scrollBy({
-                top: 400,
-                left: 0,
-                behavior: "smooth",
-            });
-            console.log(line.height);
+        const startTimeline = function() {
+            line.started = true;
+            revealEvent(1);
         };
+
+        const revealEvent = function(id) {
+            if(id > 1) events.value.find(el => el.id === id - 1).clicked = true;
+            if(id - 1 === events.value.length) line.complete = true;
+            
+            const event = events.value.find(el => el.id === id);
+
+            if(!event) return;
+            event.show = true;
+        }
 
         return {
             line,
             events,
-            growLine,
+            revealEvent,
+            startTimeline
         }
     },
 }
@@ -171,82 +172,40 @@ export default {
 .events {
     background-color: #fff3f3;
     color: #111111;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-.line-container {
-    width: 100%;
-    min-height: 8vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    transition: height 0.3s ease-in;
-}
-
-.line::before {
-    content: "";
-    height: 30px;
-    width: 30px;
-    margin-left: -13px;
-    border-radius: 20px;
-    background-color: aqua;
-    display: block;
-}
-
-.completed:after {
-    content: "";
-    height: 30px;
-    width: 30px;
-    margin-left: -13px;
-    border-radius: 20px;
-    background-color: aqua;
-    display: block;
-    top: 95%;
-    position: relative;
-}
-
-.line {
-    content: "";
-    height: 0px;
-    width: 4px;
-    background-color: aqua;
-    display: block;
-    position: relative;
-    left: 50%;
-    margin-top: 0;
-    transition: height 0.5s ease-in;
-}
-
-.line-column {
-    grid-column-start: 2;
-    width: 100%;
-}
-
-.event-column {
-    grid-column-start: 3;
-}
-
-.event {
-    top: 0;
-    border: 1px solid #111111;
-    padding: 1rem;
-    position: relative;
-    margin-bottom: 2rem;
+.events h2 {
+    margin-bottom: 10rem;
 }
 
 .event h3 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 900;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .event p {
-    font-size: 18px;
+    font-size: 16px;
+    text-align: justify;
+    text-justify:inter-word
 }
 
 .event h5 {
     font-size: 14px;
     margin-top: 0;
     margin-bottom: 0;
+    text-align: right;
+}
+
+.year h3 {
+    margin: 0;
+}
+
+svg {
+    height: 40px;
+    margin-left: 5px;
 }
 
 </style>
