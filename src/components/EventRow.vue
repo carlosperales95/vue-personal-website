@@ -32,6 +32,7 @@ export default {
         const clickButton = function() {
             if(props.type === 'event-container') {
                 context.emit('click-button', props.event.id + 1);
+                window.scrollBy({ top: 400, behavior: "smooth"});
             }
 
             if(props.type === 'start-container')
@@ -44,6 +45,7 @@ export default {
     },
 }
 </script>
+
 
 <style scoped>
 
@@ -182,6 +184,10 @@ export default {
 .end-container button {
     pointer-events: none;
     background-color: azure;
+}
+
+.end-container .year h3 {
+    margin-top: 0;
 }
 
 .start-container .empty {

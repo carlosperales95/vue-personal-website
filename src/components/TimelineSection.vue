@@ -11,7 +11,7 @@
         >
             <template v-slot:year>
                 <h3> 1995 </h3>
-                <icon-baby/>
+                <icon-baby class="baby" />
             </template>
         </event-row>
         <event-row
@@ -38,20 +38,27 @@
             :type="'end-container'"
             v-if="line.complete"
             :empty="true"
-        ></event-row>
+        >
+            <template v-slot:year>
+                <h3> 2024 </h3>
+                <icon-calendar class="calendar" />
+            </template>
+        </event-row>
+        <p> Text to finish the section that says something that makes sense</p>
     </section>
 </template>
 <script>
 import { ref, reactive } from 'vue';
 import EventRow from './EventRow.vue';
 import IconBaby from './icons/IconBaby.vue';
-
+import IconCalendar from './icons/IconCalendar.vue';
 
 
 export default {
     components: {
         EventRow,
-        IconBaby
+        IconBaby,
+        IconCalendar,
     },
     setup() {
 
@@ -156,7 +163,7 @@ export default {
 
             if(!event) return;
             event.show = true;
-        }
+        };
 
         return {
             line,
@@ -205,7 +212,15 @@ export default {
 
 svg {
     height: 40px;
+}
+
+.baby {
     margin-left: 5px;
+    padding-right: 5px;
+}
+
+.calendar {
+    padding-right: 15px;
 }
 
 </style>

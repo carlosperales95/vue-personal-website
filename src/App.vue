@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="logo">SapoKode</div>
-    <nav>
+    <nav class="navigation">
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       </nav>
@@ -85,22 +85,27 @@ header {
   margin-left: 1rem;
 }
 
-nav {
+.navigation {
   right: 0;
   width: 100%;
   text-align: center;
   display: flex;
+  border: none;
+  position: inherit;
+  padding: 0;
+  border-radius: 0;
+  z-index: 1;
 }
 
-nav a.router-link-exact-active {
+.navigation a.router-link-exact-active {
   color: #E67E22;
 }
 
-nav a.router-link-exact-active:hover {
+.navigation a.router-link-exact-active:hover {
   background-color: transparent;
 }
 
-nav a {
+.navigation a {
   height: 100%;
   padding: 0 1rem;
   margin: auto;
@@ -111,6 +116,10 @@ nav a {
   font-weight: bold;
 
   color: #fff3f3;
+}
+
+.navigation a:hover {
+  color: #E67E22;
 }
 
 footer {
