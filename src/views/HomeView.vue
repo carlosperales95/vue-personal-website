@@ -1,6 +1,8 @@
 <template>
-  <div class="portfolio">
-    <section class="about section">
+  <!-- <parallax></parallax> -->
+  <hero-section @trigger-show="triggerAboutMe"></hero-section>
+  <div class="portfolio" v-if="!hideContent">
+    <!-- <section class="about section">
       <div class="employee-card">
         <h1>HELLO my name is</h1>
         <div class="employee-info">
@@ -18,7 +20,7 @@
         </div>
         <p class="about-description">{{ aboutMe }}</p>
       </div>
-    </section>
+    </section> -->
     <timeline-section></timeline-section>
 
     <!-- <section class="others section">
@@ -48,12 +50,19 @@
 <script>
 import { ref } from 'vue';
 import TimelineSection from '@/components/TimelineSection.vue';
+import Parallax from '@/components/Parallax.vue';
+import HeroSection from '@/components/HeroSection.vue';
 
 export default {
   components: {
-    TimelineSection
+    TimelineSection,
+    Parallax,
+    HeroSection
   },
   setup() {
+
+    const hideContent = ref(true);
+
     const fullName = ref('SapoKode');
     const jobTitle = ref('Software Engineer');
     const aboutMe = ref('The best results come from the sheer motivation to improve and taking care of your workers, not from the ideas of the stakeholders throwing money at you.');
@@ -75,13 +84,26 @@ export default {
     const linkedin = ref('https://www.linkedin.com/in/your-linkedin-profile');
     
 
+    const triggerAboutMe = function() {
+      hideContent.value = false;
+      setTimeout(function() {
+        
+        document.querySelector(".portfolio")
+          .scrollIntoView({
+              behavior: 'smooth'
+            });
+      }, 2000);
+    }
+
     return {
+      hideContent,
       fullName,
       jobTitle,
       aboutMe,
       projects,
       email,
       linkedin,
+      triggerAboutMe
     };
   },
 };

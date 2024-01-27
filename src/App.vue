@@ -1,15 +1,15 @@
 <template>
-  <header>
+  <!-- <header>
     <div class="logo">SapoKode</div>
     <nav class="navigation">
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       </nav>
-  </header>
+  </header> -->
 
   <router-view />
 
-  <footer class="footer">
+  <!-- <footer class="footer">
     <div class="site-info-col">
       <h3>Where to find me:</h3>
       <a href="https://www.linkedin.com/in/carlos-perales95/">LinkedIn</a>
@@ -22,7 +22,7 @@
       <pre>{{ frogASCII }}</pre>
       <p>Site Made by: SapoKode</p>
     </div>
-  </footer>
+  </footer> -->
 </template>
 
 <script>
