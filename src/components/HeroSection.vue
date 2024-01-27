@@ -5,7 +5,7 @@
             <div class="img-container">
                 <img src="../assets/hero/isoroom.gif"/>
                 <div class="art-credits">
-                    <h2>BY:</h2>
+                    <h2>VOXELART BY:</h2>
                     <a href="https://www.behance.net/sircarma">SIRCARMA</a>
                 </div>
             </div>
@@ -125,14 +125,14 @@ export default {
 }
 
 img {
-    /* width: 90%; */
     max-width: 80%;
     padding: 7%;
+    padding-bottom: 3%;
 }
 
 .art-credits {
     height: 50px;
-    width: 100%;
+    width: 90%;
     color: azure;
     transform: rotate3d(0, 0, 1, 0.47rad);
 }
@@ -144,7 +144,7 @@ img {
 }
 
 .art-credits h2 {
-    font-size: 18px;
+    font-size: 14px;
     margin: 0;
     padding-left: 5%;
     font-weight: bolder;
