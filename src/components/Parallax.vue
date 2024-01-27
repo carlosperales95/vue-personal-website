@@ -37,14 +37,14 @@
       />
       <img
         class="layer layer-6"
-        src="../assets/parallax/granda-back..jpg"
+        src="../assets/parallax/granda-back.jpg"
         alt="bg-2"
         width="17%"
         data-speed="3"
       />
       <img
         class="layer layer-7"
-        src="../assets/parallax/granda-back..jpg"
+        src="../assets/parallax/granda-back.jpg"
         alt="bg-1"
         width="17%"
         data-speed="4"
