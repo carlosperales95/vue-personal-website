@@ -1,48 +1,48 @@
 <template>
   <!-- <parallax></parallax> -->
   <hero-section @trigger-show="triggerAboutMe"></hero-section>
-  <div class="portfolio" v-if="!hideContent">
-    <!-- <section class="about section">
-      <div class="employee-card">
-        <h1>HELLO my name is</h1>
-        <div class="employee-info">
-          <div class="basic-info">
-            <h2>{{ fullName }}</h2>
-            <p class="job-title">{{ jobTitle }}</p>
-            <p class="description-line">Height: 180cm</p>
-            <p class="description-line">Age: 28years</p>
-            <p class="description-line">Nationality: Spanish</p>
-            <p class="description-line">Other: Likes plants</p>
-          </div>
-          <div class="employee-img">
-            <img src='../assets/sapokode-img.png'>
-          </div>
+  <div class="about-container" v-if="!hideContent">
+    <div class="separator">
+      <div class="about-card">
+        <h1>
+          My work is all about bringing fresh ideas and original concepts to life.
+        </h1>
+      </div>
+      <employee-card :fullName="fullName" :jobTitle="jobTitle" :aboutMe="aboutMe"></employee-card>
+
+    </div>
+    <div class="separator2">
+      <div class="about-card">
+        <h1>
+          I develop reliable and scalable software that stands out with creativity and personality.
+        </h1>
+      </div>
+    </div>
+    
+    <div class="centered-content">
+      <timeline-section></timeline-section>
+      <!-- <section class="others section">
+        <h2>Background</h2>
+        <div v-for="project in projects" :key="project.id" class="project">
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
         </div>
-        <p class="about-description">{{ aboutMe }}</p>
-      </div>
-    </section> -->
-    <timeline-section></timeline-section>
-    <!-- <section class="others section">
-      <h2>Background</h2>
-      <div v-for="project in projects" :key="project.id" class="project">
-        <h3>{{ project.name }}</h3>
-        <p>{{ project.description }}</p>
-      </div>
-    </section>
+      </section>
 
-    <section class="projects section">
-      <h2>Projects</h2>
-      <div v-for="project in projects" :key="project.id" class="project">
-        <h3>{{ project.name }}</h3>
-        <p>{{ project.description }}</p>
-      </div>
-    </section>
+      <section class="projects section">
+        <h2>Projects</h2>
+        <div v-for="project in projects" :key="project.id" class="project">
+          <h3>{{ project.name }}</h3>
+          <p>{{ project.description }}</p>
+        </div>
+      </section>
 
-    <section class="contact section">
-      <h2>Contact</h2>
-      <p>Email: {{ email }}</p>
-      <p>LinkedIn: {{ linkedin }}</p>
-    </section> -->
+      <section class="contact section">
+        <h2>Contact</h2>
+        <p>Email: {{ email }}</p>
+        <p>LinkedIn: {{ linkedin }}</p>
+      </section> -->
+    </div>
   </div>
 </template>
 
@@ -51,12 +51,14 @@ import { ref } from 'vue';
 import TimelineSection from '@/components/TimelineSection.vue';
 import Parallax from '@/components/Parallax.vue';
 import HeroSection from '@/components/HeroSection.vue';
+import EmployeeCard from '@/components/EmployeeCard.vue'
 
 export default {
   components: {
     TimelineSection,
     Parallax,
-    HeroSection
+    HeroSection,
+    EmployeeCard
   },
   setup() {
 
@@ -87,7 +89,7 @@ export default {
       hideContent.value = false;
       setTimeout(function() {
         
-        document.querySelector(".portfolio")
+        document.querySelector(".about-container")
           .scrollIntoView({
               behavior: 'smooth'
             });
@@ -110,95 +112,48 @@ export default {
 
 <style scoped>
 
-.portfolio {
+/* .about-container {
+} */
+
+
+.centered-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.about-card {
+  width: 40%;
+  height: 60%;
+  color: azure;
+  align-self: center;
+  margin-left: 5rem;
+  padding: 2rem;
+  border-radius: 10px;
+  font-size: 30px;
+}
+
+.about-card h1 {
+  margin-top: 0;
+  margin-bottom: 10rem;
+}
+
+.separator {
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  background-color: #E67E22;
+  position: relative;
+}
+
+.separator2 h1 {
+  color: #E67E22;
 }
 
 .section {
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 8px;
-}
-.employee-card {
-  background-color: #fff3f3;
-  color: #1a1a1a;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-  text-align: center;
-}
-
-.employee-card h1 {
-  background-color: #800020;
-  color: #fff3f3;
-  font-size: 45px;
-  border-radius: inherit;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  padding: 1%;
-  margin-bottom: 0;
-}
-
-.employee-card:hover {
-  transform: scale(1.05);
-}
-
-.basic-info {
-  text-align: center;
-  padding: 2%;
-  border: 1px dashed #800020;
-  border-radius: 10px;
-}
-
-.employee-info {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  padding: 2%;
-}
-
-.employee-img {
-  padding: 5%;
-}
-
-.employee-img img {
-  height: 100%;
-  width: 100%;
-  border: 1px solid #fff3f3;
-  text-align: center;
-}
-
-.basic-info h2 {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  color: #E67E22;
-  border-bottom: 1px dashed #800020;
-}
-
-.job-title {
-  margin-top: 5px;
-  font-weight: bold;
-  border-bottom: 1px dashed #cac8c8;
-}
-
-.description-line {
-  font-weight: bold;
-  border-bottom: 1px dashed #cac8c8;
-  text-align: left;
-  font-size: 15px;
-}
-
-.about-description {
-  margin-top: 0;
-  background-color: #800020;
-  color: #fff3f3;
-  font-size: 10px;
-  border-radius: inherit;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  padding: 1%;
 }
 
 .projects {
