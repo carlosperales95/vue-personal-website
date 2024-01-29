@@ -1,6 +1,12 @@
 <template>
     <div class="hero-container">
-        <h2 class="site-title">SapoKode</h2>
+        <div class="site-title">
+            <socials-bar/>
+            <div class="intro">
+                <p> Hello ! I am </p>
+                <h2>SapoKode</h2>
+            </div>
+        </div>
         <div class="nav-container">
             <div class="img-container">
                 <img src="../assets/hero/isoroom.gif"/>
@@ -12,60 +18,46 @@
             <div class="links">
                 <ul>
                     <li><router-link to="/projects">Projects</router-link></li>
-                    <li><router-link to="/">Other</router-link></li>
-                    <li><router-link to="/">Other</router-link></li>
-                    <li><router-link to="/">Other</router-link></li>
+                    <li><router-link to="/devlogs">DevLogs</router-link></li>
+                    <li><router-link to="/">Photography</router-link></li>
+                    <li><router-link to="/">Music</router-link></li>
                 </ul>
                 <div class="action-container">
                     <a class="action-link" @click="$emit('trigger-show')">Learn more about me</a>
                 </div>
             </div>
         </div>
-        <div class="socials-container">
-            <ul>
-                <li>
-                    <icon-github class="icon" />
-                </li>
-                <li>
-                    <icon-linkedin class="icon" />
-                </li>
-                <li>
-                    <icon-twitch class="icon" />
-                </li>
-                <li>
-                    <icon-instagram class="icon" />
-                </li>
-            </ul>
-        </div>
     </div>
 </template>
 
 <script>
 import { RouterLink, RouterView } from 'vue-router';
-import IconGithub from './icons/IconGithub.vue';
-import IconTwitch from './icons/IconTwitch.vue';
-import IconLinkedin from './icons/IconLinkedin.vue';
-import IconInstagram from './icons/IconInstagram.vue';
+import SocialsBar from './SocialsBar.vue';
+
 export default {
     components: {
         RouterLink,
         RouterView,
-        IconGithub,
-        IconInstagram,
-        IconLinkedin,
-        IconTwitch
+        SocialsBar
     },
     emits: ['trigger-show']
 }
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Karma Future';
+    src: url('../assets/fonts/karma/ka1.ttf');
+}
 
 .hero-container {
     display: flex;
     flex-direction: column;
-    background-color: black;
     min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    background: rgb(26,26,26);
+    background: linear-gradient(-9deg, rgba(26,26,26,1) 0%, rgba(0,0,0,1) 15%);
 }
 
 .site-title {
@@ -73,12 +65,30 @@ export default {
     color: black;
     padding-right: 10%;
     margin-bottom: 1rem;
-    margin-top: 20%;
+    margin-top: 10%;
     text-align: right;
     width: 60%;
     align-self: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: 'Karma Future';
+    padding: 0.5rem;
+    align-items: flex-end;
 }
 
+.site-title h2 {
+    margin: 0;
+    align-self: center;
+    text-align: left;
+}
+
+.intro {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    -webkit-text-fill-color: black;
+}
 
 .nav-container {
     width: 100%;
@@ -89,18 +99,17 @@ export default {
 }
 
 .action-container {
-    background-color: black;
+    background-color: transparent;
     width: 100%;
     text-align: center;
     display: flex;
-    justify-content: center;
-    min-height: 20vw;
+    min-height: 20%;
 }
 
 .action-link {
-    width: 20rem;
+    min-width: 25rem;
     height: 5rem;
-    font-size: 25px;
+    font-size: 22px;
     background-color: transparent;
     color: azure;
     align-self: flex-end;
@@ -114,8 +123,9 @@ export default {
 }
 
 .img-container {
-    width: 60%;
-    margin-top: 8%;
+    width: 100%;
+    text-align: center;
+    /* margin-top: 2%; */
 }
 
 .img-container h3 {
@@ -132,15 +142,23 @@ img {
 
 .art-credits {
     height: 50px;
-    width: 90%;
+    width: 60%;
     color: azure;
     transform: rotate3d(0, 0, 1, 0.47rad);
+    /* margin-top: 2rem; */
+    position: relative;
+    left: 25%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .art-credits a {
     padding-left: 5%;
     font-size: 25px;
     color: azure;
+    text-align: left;
+    width: 40%;
 }
 
 .art-credits h2 {
@@ -148,76 +166,49 @@ img {
     margin: 0;
     padding-left: 5%;
     font-weight: bolder;
+    text-align: left;
+    width: 40%;
 }
 
 .links {
-    width: 40%;
-    text-align: right;
+    font-family: 'Karma Future';
+    width: 60%;
+    text-align: left;
 }
 
 .links ul {
     list-style: none;
     font-size: 30px;
     margin-bottom: 6rem;
+    list-style: '\21B3';
 }
 
 .links ul li {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
-.links ul li:nth-child(1) {
+.links ul li {
     /* background-color: #E67E22; */
     margin-right: 20%;
 }
 
-.links ul li:nth-child(2) {
-    margin-right: 40%;
-}
-
-.links ul li:nth-child(3) {
-    margin-right: 60%;
-}
-
-.links ul li:nth-child(4) {
-    margin-right: 80%;
+.links ul li::marker {
+    font-weight: bolder;
+    font-size: 40px;
 }
 
 a {
     text-decoration: none;
     color: azure;
+    padding: 1rem;
+    background: linear-gradient(to left, transparent 50%, #E67E22 50%) right;
+    background-size: 201% 100%;
+    transition: .5s ease-out;
 }
 
 a:hover {
-    color: #E67E22;
-}
-
-.socials-container {
-    color: azure;
-}
-
-.socials-container ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-}
-
-.socials-container ul li {
-    width: 3rem;
-    height: 3rem;
-    padding: 0.5rem;
-    border-radius: 50%;
-}
-
-.icon {
-    display: block;
-    width: 100%;
-    height: 100%;
-    fill: azure;
-}
-
-.icon:hover {
-    cursor: pointer;
-    fill: #E67E22;
+    /* color: #E67E22; */
+    background-position: left;
 }
 
 </style>

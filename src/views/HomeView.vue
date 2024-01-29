@@ -22,7 +22,6 @@
       </div>
     </section> -->
     <timeline-section></timeline-section>
-
     <!-- <section class="others section">
       <h2>Background</h2>
       <div v-for="project in projects" :key="project.id" class="project">
