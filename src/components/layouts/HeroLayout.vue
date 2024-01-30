@@ -130,7 +130,8 @@ a:hover {
 }
 
 .action-link {
-    min-width: 25rem;
+    min-width: 20rem;
+    width: 80%;
     height: 5rem;
     font-size: 22px;
     background-color: transparent;

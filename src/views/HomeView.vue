@@ -18,9 +18,9 @@
         </h1>
       </div>
     </div>
-    
+    <resume-layout></resume-layout>
     <div class="centered-content">
-      <timeline-section></timeline-section>
+      <!-- <timeline-section></timeline-section> -->
       <!-- <section class="others section">
         <h2>Background</h2>
         <div v-for="project in projects" :key="project.id" class="project">
@@ -48,17 +48,18 @@
 
 <script>
 import { ref } from 'vue';
-import TimelineSection from '@/components/TimelineSection.vue';
 import Parallax from '@/components/Parallax.vue';
 import HeroSection from '@/components/HeroSection.vue';
 import EmployeeCard from '@/components/EmployeeCard.vue'
+import ResumeLayout from '@/components/layouts/ResumeLayout.vue';
 
 export default {
   components: {
-    TimelineSection,
+    // TimelineSection,
     Parallax,
     HeroSection,
-    EmployeeCard
+    EmployeeCard,
+    ResumeLayout
   },
   setup() {
 
@@ -112,8 +113,10 @@ export default {
 
 <style scoped>
 
-/* .about-container {
-} */
+.about-container {
+  display: flex;
+  flex-direction: column;
+}
 
 
 .centered-content {
@@ -130,7 +133,7 @@ export default {
   margin-left: 5rem;
   padding: 2rem;
   border-radius: 10px;
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .about-card h1 {

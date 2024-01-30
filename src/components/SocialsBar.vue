@@ -62,6 +62,7 @@ export default {
 
 .socials-container {
     color: azure;
+    align-self: center;
 }
 
 .socials-container ul {
@@ -90,5 +91,6 @@ export default {
     cursor: pointer;
     fill: #E67E22;
 }
+
 
 </style>

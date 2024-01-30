@@ -45,13 +45,12 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    -webkit-text-fill-color: black;
 }
 
 img {
     max-width: 80%;
-    padding: 7%;
-    padding-bottom: 3%;
+    padding: 0 7% 7% 3%;
+
 }
 
 .art-credits {
@@ -110,4 +109,5 @@ a:hover {
     align-self: center;
     text-align: left;
 }
+
 </style>
