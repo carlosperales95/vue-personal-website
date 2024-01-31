@@ -27,17 +27,18 @@
 
 export default {
     props: ['event', 'type', 'empty', 'clicked'],
-    emits: ['click-button'],
+    emits: ['click-button', 'start-button'],
     setup(props, context) {
         const clickButton = function() {
             if(props.type === 'event-container') {
                 context.emit('click-button', props.event.id + 1);
-                window.scrollBy({ top: 400, behavior: "smooth"});
             }
 
             if(props.type === 'start-container')
                 context.emit('start-button');
-        }
+            window.scrollBy({ top: 600, behavior: "smooth"});
+            
+        };
 
         return {
             clickButton

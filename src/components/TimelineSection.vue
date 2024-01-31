@@ -150,19 +150,34 @@ export default {
             },
         ]);
 
-        const startTimeline = function() {
+        const startTimeline = () => {
+            // For starter node, set line to started and reveal first event
             line.started = true;
             revealEvent(1);
         };
 
-        const revealEvent = function(id) {
+        const revealEvent = (id) => {
+            // id is current id + 1 emitted by eventRow
+            // Thus, we set the previous to clicked
+            // skip for first node wich emits id=1
             if(id > 1) events.value.find(el => el.id === id - 1).clicked = true;
+
+            // If event is last node, set time line to complete
             if(id - 1 === events.value.length) line.complete = true;
             
+            // Find event from array using id. If no event fount, exit.
+            // Otherwise set show to true
             const event = events.value.find(el => el.id === id);
-
             if(!event) return;
             event.show = true;
+            
+            // Get all array of event elements and smoothScroll to id
+            const elements = document.querySelectorAll('.marker');
+            if(!elements) return;
+            elements[id]
+                .scrollIntoView({
+                    behavior: 'smooth',
+                });
         };
 
         return {

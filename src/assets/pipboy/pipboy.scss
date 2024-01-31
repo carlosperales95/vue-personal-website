@@ -10,6 +10,7 @@
 
 // Styles for whole component
 .container-pip {
+  width: 60%;
   padding-top:  5vh;
   padding-bottom:  5vh;
   // background: #111;
@@ -615,6 +616,7 @@
   border-bottom-right-radius: 90px;
   border-top: 2px solid #c3bfb4;
   position: relative;
+  box-shadow: 5px 10px 50px black;
 }
 
 

@@ -8,8 +8,16 @@
         </button>
     </div>
     <div class="sections" :class="{'alternative': rolledSection}">
-        <div class="slider-section">
+        <div class="slider-section anothaone">
             <pip-boy></pip-boy>
+            <div class="skills-container">
+                <ul>
+                    <li>Frontend Power</li>
+                    <li>Backend Power</li>
+                    <li>Charisma</li>
+                    <li>Luck</li>
+                </ul>
+            </div>
         </div>
         <div class="slider-section">
             <timeline-section></timeline-section>
@@ -121,5 +129,35 @@ section {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+}
+
+.anothaone {
+    min-width: 70%;
+    display: flex;
+    /* background-color: brown; */
+    border: 1px solid azure;
+    margin: 0;
+    margin-left: 10%;
+}
+
+.skills-container {
+    font-family: 'Chakra Petch', sans-serif;
+    color: azure;
+    min-width: 30%;
+    border-radius: 20px;
+    border: 3px solid azure;
+    background-color: #fff3f3;
+    /* background-image: linear-gradient(0deg, rgb(0,142,0), azure); */
+}
+
+.anothaone ul {
+    list-style: none;
+}
+
+.anothaone ul li {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: #008e00;
+    /* background-color: azure; */
 }
 </style>
