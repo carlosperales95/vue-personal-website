@@ -10,7 +10,7 @@
       <div class="proj-container">
         <h4>PROJECTS</h4>
         <ul>
-          <li v-for="project in projects" :key="project.id">
+          <li v-for="project in projects" :key="project.id" @mouseover="changeImageUrl(project.id)">
             {{ project.name }}
           </li>
         </ul>
@@ -26,7 +26,7 @@
         </p>
       </div>
       <div class="cell view-container">
-        <img src="../assets/hero/glitch-sword.png">
+        <img :src="showImageUrl">
       </div>
       <div class="cell rowed">
         <div>
@@ -41,7 +41,7 @@
     </div>
     <div class="row">
       <div class="cell lens">
-        <img src="../assets/hero/lens-girl.gif">
+        <img src="@/assets/hero/lens-girl.gif">
       </div>
       <div class="proj-container cell">
         <ul>
@@ -103,35 +103,43 @@ export default {
       },
       {
         id: '2',
-        name: "PROJ2"
+        name: "PROJ2",
+        img_url: 'arcades.gif'
       },
       {
         id: '3',
-        name: "PROJ3"
+        name: "PROJ3",
+        img_url: 'basement-office.jpeg'
       },
       {
         id: '4',
-        name: "PROJ4"
+        name: "PROJ4",
+        img_url: 'cyberpunk-office.jpeg'
       },
       {
         id: '5',
-        name: "PROJ5"
+        name: "PROJ5",
+        img_url: 'cyberpunk-office.jpeg'
       },
       {
         id: '6',
-        name: "PROJ6"
+        name: "PROJ6",
+        img_url: 'futuristic-office.jpeg'
       },
       {
         id: '7',
-        name: "PROJ7"
+        name: "PROJ7",
+        img_url: 'pixel-desk.gif'
       },
       {
         id: '8',
-        name: "PROJ8"
+        name: "PROJ8",
+        img_url: 'robot-coding.gif'
       },
       {
         id: '9',
-        name: "PROJ9"
+        name: "PROJ9",
+        img_url: 'millionaire-office.png'
       }
     ]);
 
@@ -142,10 +150,22 @@ export default {
           I will attempt to improve it in the future and try to make it look less wonky. This above logo came from another idea, making a frog out of special characters and punctuations.
           Although my real name has nothing to do with toads, they have become my official mascot. The toad is also big in japanese culture, which I draw a lot of inspiration from.`;
 
+
+    const showImageUrl = ref(new URL(`../assets/hero/${projects.value[0].img_url}`, import.meta.url).href);
+
+    const changeImageUrl = (id) => {
+      const imgUrl = projects.value.find(proj => proj.id === id).img_url;
+
+      showImageUrl.value = new URL(`../assets/hero/${imgUrl}`, import.meta.url).href;
+    };
+
+
     return {
       frogASCII,
       text,
-      projects
+      projects,
+      showImageUrl,
+      changeImageUrl
     }
   },
 }
