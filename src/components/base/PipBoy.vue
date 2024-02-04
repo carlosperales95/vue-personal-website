@@ -127,5 +127,5 @@
 </template>
 
 <script setup>
-    import '../assets/pipboy/pipboy.scss'
+    import '../../assets/pipboy/pipboy.scss'
 </script>

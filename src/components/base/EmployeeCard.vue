@@ -12,7 +12,7 @@
                 <p class="description-line">Other: Likes plants</p>
             </div>
             <div class="employee-img">
-                <img src='../assets/sapokode-img.png'>
+                <img src='../../assets/sapokode-img.png'>
             </div>
             </div>
             <p class="about-description">{{ aboutMe }}</p>

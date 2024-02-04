@@ -48,9 +48,9 @@
 
 <script>
 import { ref } from 'vue';
-import Parallax from '@/components/Parallax.vue';
-import HeroSection from '@/components/HeroSection.vue';
-import EmployeeCard from '@/components/EmployeeCard.vue'
+import Parallax from '@/components/base/Parallax.vue';
+import HeroSection from '@/components/sections/HeroSection.vue';
+import EmployeeCard from '@/components/base/EmployeeCard.vue'
 import ResumeLayout from '@/components/layouts/ResumeLayout.vue';
 
 export default {

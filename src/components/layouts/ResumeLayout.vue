@@ -26,8 +26,8 @@
 </template>
 <script>
 import { ref, computed } from 'vue';
-import TimelineSection from '@/components/TimelineSection.vue';
-import PipBoy from '@/components/PipBoy.vue';
+import TimelineSection from '@/components/sections/TimelineSection.vue';
+import PipBoy from '@/components/base/PipBoy.vue';
 
 export default {
     components: {

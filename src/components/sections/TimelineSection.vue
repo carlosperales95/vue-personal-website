@@ -49,10 +49,11 @@
 </template>
 <script>
 import { ref, reactive } from 'vue';
-import EventRow from './EventRow.vue';
-import IconBaby from './icons/IconBaby.vue';
-import IconCalendar from './icons/IconCalendar.vue';
+import EventRow from '../base/EventRow.vue';
+import IconBaby from '../icons/IconBaby.vue';
+import IconCalendar from '../icons/IconCalendar.vue';
 
+import '../../assets/sections/timeline.scss'
 
 export default {
     components: {
@@ -189,53 +190,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.events {
-    background-color: #fff3f3;
-    color: #111111;
-    display: flex;
-    flex-direction: column;
-}
-
-.events h2 {
-    margin-bottom: 10rem;
-}
-
-.event h3 {
-    font-size: 24px;
-    font-weight: 900;
-    margin-bottom: 10px;
-}
-
-.event p {
-    font-size: 16px;
-    text-align: justify;
-    text-justify:inter-word
-}
-
-.event h5 {
-    font-size: 14px;
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: right;
-}
-
-.year h3 {
-    margin: 0;
-}
-
-svg {
-    height: 40px;
-}
-
-.baby {
-    margin-left: 5px;
-    padding-right: 5px;
-}
-
-.calendar {
-    padding-right: 15px;
-}
-
-</style>

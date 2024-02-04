@@ -2,7 +2,7 @@
     <div class="socials-container">
         <ul>
             <li v-for="social in socials" :key="social.id">
-                <a :href="social.url">
+                <a class="social-link" :href="social.url">
                     <icon-twitch v-if="social.name === 'twitch'" class="icon" />
                     <icon-instagram v-if="social.name === 'instagram'" class="icon" />
                     <icon-linkedin v-if="social.name === 'linkedin'" class="icon" />
@@ -15,10 +15,10 @@
 
 <script>
 import { ref } from 'vue';
-import IconGithub from './icons/IconGithub.vue';
-import IconTwitch from './icons/IconTwitch.vue';
-import IconLinkedin from './icons/IconLinkedin.vue';
-import IconInstagram from './icons/IconInstagram.vue';
+import IconGithub from '../icons/IconGithub.vue';
+import IconTwitch from '../icons/IconTwitch.vue';
+import IconLinkedin from '../icons/IconLinkedin.vue';
+import IconInstagram from '../icons/IconInstagram.vue';
 
 export default {
     components: {
@@ -59,38 +59,6 @@ export default {
 </script>
 
 <style scoped>
-
-.socials-container {
-    color: azure;
-    align-self: center;
-}
-
-.socials-container ul {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    margin-left: 4rem;
-}
-
-.socials-container ul li {
-    width: 3rem;
-    height: 3rem;
-    padding: 0.5rem;
-    border-radius: 50%;
-}
-
-.icon {
-    display: block;
-    width: 100%;
-    height: 100%;
-    fill: black;
-}
-
-.icon:hover {
-    cursor: pointer;
-    fill: #E67E22;
-}
 
 
 </style>

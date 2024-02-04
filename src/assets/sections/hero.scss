@@ -1,0 +1,220 @@
+// Hero layout base styles
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    /* background-color: black; */
+    background: rgb(26,26,26);
+    background: linear-gradient(0deg, rgba(26,26,26,0.5) 0%, rgba(0,0,0,1) 2%);
+}
+
+
+.site-title {
+    background-color: azure;
+    color: black;
+    padding-right: 10%;
+    margin-bottom: 1rem;
+    margin-top: 10%;
+    text-align: right;
+    width: 60%;
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: 'Karma Future';
+    padding: 0.5rem;
+    align-items: flex-end;
+}
+
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    color: azure;
+}
+
+
+.links {
+    font-family: 'Karma Future';
+    width: 60%;
+    text-align: left;
+}
+
+
+.img-container {
+    width: 100%;
+    text-align: center;
+}
+
+
+.links ul {
+    list-style: none;
+    font-size: 30px;
+    margin-bottom: 6rem;
+    list-style: '\21B3';
+}
+
+.links ul li {
+    margin-bottom: 2rem;
+}
+
+.links ul li {
+    /* background-color: #E67E22; */
+    margin-right: 20%;
+}
+
+.links ul li::marker {
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.links ul li a {
+    text-decoration: none;
+    color: azure;
+    padding: 1rem;
+    background: linear-gradient(to left, transparent 50%, #E67E22 50%) right;
+    background-size: 201% 100%;
+    transition: .5s ease-out;
+}
+
+.links ul li a:hover {
+    /* color: #E67E22; */
+    background-position: left;
+}
+
+.action-container {
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    min-height: 20%;
+}
+
+.action-link {
+    min-width: 20rem;
+    width: 80%;
+    height: 5rem;
+    font-size: 22px;
+    background-color: transparent;
+    color: azure;
+    align-self: flex-end;
+    border: 2px solid azure;
+    line-height: 5rem;
+}
+
+.action-link:hover {
+    cursor: pointer;
+    border-color: #E67E22;
+}
+
+// Hero content styles
+@font-face {
+    font-family: 'Karma Future';
+    src: url('../fonts/karma/ka1.ttf');
+}
+
+.intro {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+img {
+    max-width: 80%;
+    padding: 0 7% 7% 3%;
+
+}
+
+.art-credits {
+    height: 50px;
+    width: 60%;
+    color: azure;
+    transform: rotate3d(0, 0, 1, 0.47rad);
+    position: relative;
+    left: 25%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.art-credits a {
+    padding-left: 5%;
+    font-size: 25px;
+    color: azure;
+    text-align: left;
+    width: 40%;
+}
+
+.art-credits h2 {
+    font-size: 14px;
+    margin: 0;
+    padding-left: 5%;
+    font-weight: bolder;
+    text-align: left;
+    width: 40%;
+}
+
+
+
+.shoutout {
+    text-decoration: none;
+    color: azure;
+    padding: 1rem;
+    background: linear-gradient(to left, transparent 50%, #E67E22 50%) right;
+    background-size: 201% 100%;
+    transition: .5s ease-out;
+}
+
+.shoutout:hover {
+    /* color: #E67E22; */
+    background-position: left;
+}
+
+.img-container h3 {
+    font-size: 15px;
+    margin: 0;
+    padding-left: 10%;
+}
+
+.site-title h2 {
+    margin: 0;
+    align-self: center;
+    text-align: left;
+}
+
+// Socials
+.socials-container {
+    color: azure;
+    align-self: center;
+}
+
+.socials-container ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    margin-left: 4rem;
+}
+
+.socials-container ul li {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+.icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: black;
+}
+
+.icon:hover {
+    cursor: pointer;
+    fill: #E67E22;
+}
