@@ -13,13 +13,13 @@
             </div>
             <div class="links">
                 <ul>
-                    <li><router-link to="/projects">Projects</router-link></li>
+                    <li><router-link class="filled-background" to="/projects">Projects</router-link></li>
                     <!-- <li><router-link to="/devlogs">DevLogs</router-link></li>
                     <li><router-link to="/">Photography</router-link></li>
                     <li><router-link to="/">Music</router-link></li> -->
                 </ul>
                 <div class="action-container">
-                    <a class="action-link" @click="$emit('trigger-show')">Learn more about me</a>
+                    <a class="action-link filled-background" @click="$emit('trigger-show')">Learn more about me</a>
                 </div>
             </div>
         </div>
