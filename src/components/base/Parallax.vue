@@ -2,49 +2,49 @@
      <div class="log" @mousemove="parallax">
       <img
         class="layer layer-1"
-        src="../assets/parallax/granda-back.jpg"
+        src="../../assets/parallax/granda-back.jpg"
         alt="bg-1"
         width="20%"
         data-speed="0.5"
       />
       <img
         class="layer layer-2"
-        src="../assets/parallax/cacti1.png"
+        src="../../assets/parallax/cacti1.png"
         alt="bg-2"
         width="10%"
         data-speed="3"
       />
       <img
         class="layer layer-3"
-        src="../assets/parallax/granda-back.jpg"
+        src="../../assets/parallax/granda-back.jpg"
         alt="bg-1"
         width="15%"
         data-speed="4"
       />
       <img
         class="layer layer-4"
-        src="../assets/parallax/pixil-frame-0.png"
+        src="../../assets/parallax/pixil-frame-0.png"
         alt="bg-2"
         width="50%"
         data-speed="2"
       />
       <img
         class="layer layer-5"
-        src="../assets/parallax/granda-back.jpg"
+        src="../../assets/parallax/granda-back.jpg"
         alt="bg-1"
         width="25%"
         data-speed="2"
       />
       <img
         class="layer layer-6"
-        src="../assets/parallax/granda-back.jpg"
+        src="../../assets/parallax/granda-back.jpg"
         alt="bg-2"
         width="17%"
         data-speed="3"
       />
       <img
         class="layer layer-7"
-        src="../assets/parallax/granda-back.jpg"
+        src="../../assets/parallax/granda-back.jpg"
         alt="bg-1"
         width="17%"
         data-speed="4"
