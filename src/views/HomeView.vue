@@ -53,6 +53,9 @@ import HeroSection from '@/components/sections/HeroSection.vue';
 import EmployeeCard from '@/components/base/EmployeeCard.vue'
 import ResumeLayout from '@/components/layouts/ResumeLayout.vue';
 
+import '../assets/sections/home.scss'
+
+
 export default {
   components: {
     // TimelineSection,
@@ -110,67 +113,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-
-.about-container {
-  display: flex;
-  flex-direction: column;
-}
-
-
-.centered-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.about-card {
-  width: 40%;
-  height: 60%;
-  color: azure;
-  align-self: center;
-  margin-left: 5rem;
-  padding: 2rem;
-  border-radius: 10px;
-  font-size: 28px;
-}
-
-.about-card h1 {
-  margin-top: 0;
-  margin-bottom: 10rem;
-}
-
-.separator {
-  width: 100%;
-  height: 30rem;
-  display: flex;
-  background-color: #E67E22;
-  position: relative;
-}
-
-.separator2 h1 {
-  color: #E67E22;
-}
-
-.section {
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.projects {
-  background-color: #35654D;
-  color: #fff3f3;
-}
-
-.contact {
-  background-color: #800020;
-  color: #fff3f3;
-}
-
-.project {
-  margin-bottom: 15px;
-}
-
-</style>
