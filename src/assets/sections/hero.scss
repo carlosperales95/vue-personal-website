@@ -13,12 +13,18 @@
 }
 
 
-.site-title {
+.site-title-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
     display: flex;
     flex-direction: row-reverse;
-    align-self: flex-end;
+    
     align-items: flex-end;
     text-align: right;
+
     font-family: 'Karma Future';
     color: black;
     background-color: azure;
@@ -28,31 +34,82 @@
         margin-top: 0;
     }
 
-    @media only screen and (min-width: 600px) {
-        width: 90%;
-    }
-
     @media only screen and (min-width: 768px) {
-        width: 60%;
-        padding: 0.5rem;
-        padding-right: 10%;
-        margin-top: 10%;
+        padding-right: 5%;
         margin-bottom: 1rem;
     }
 }
 
+.site-title {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 20vh;
+    width: 100%;
+    // background-color: aliceblue;
+    font-family: 'Karma Future';
+    color: azure;
+}
 
-.nav-container {
+.starburst {
+    background: #E67E22;
+    width: 4em;
+    height: 4em;
+    text-align: center;
+    // color: #fff;
+    transform: rotate(-45deg);
+}
+
+.starburst,
+.starburst span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.starburst span {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transform: rotate(45deg);
+}
+
+.starburst:before,
+.starburst:after ,
+.starburst span:before,
+.starburst span:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: -1;
+    transform: rotate(30deg);
+}
+
+.starburst:after {
+    transform: rotate(-30deg);
+}
+
+.starburst span:after {
+    transform: rotate(30deg);
+}
+.starburst span:before {
+    transform: rotate(-30deg);
+}
+
+.container {
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: row;
     color: azure;
+    // justify-content: space-between;
 }
 
-
 .links {
-    width: 60%;
+    width: 100%;
     text-align: left;
     font-family: 'Karma Future';
 
@@ -65,19 +122,28 @@
 
 
 .img-container {
-    width: 100%;
-    text-align: center;
+    width: 40%;
+    padding: 1.2rem;
+    text-align: left;
+    display: flex;
 
     @media only screen and (max-width: 600px) {
         position: absolute;
+        width: 100%;
         margin-top: 1rem;
         z-index: 1;
         filter: blur(2px);
+        bottom: 8%;
     }
+}
+
+.img-container img {
+    align-self: center;
 }
 
 
 .links ul {
+    width: 50%;
     list-style: none;
     font-size: 30px;
     margin-bottom: 6rem;
@@ -86,6 +152,7 @@
 
 .links ul li {
     margin-bottom: 2rem;
+    margin-left: 3rem;
     margin-right: 20%;
 }
 
@@ -114,6 +181,7 @@
     min-height: 20%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     text-align: center;
     background-color: transparent;
     @media only screen and (max-width: 600px) {
@@ -126,12 +194,12 @@
 
 .action-link {
     min-width: 20rem;
-    width: 80%;
+    width: 30%;
     height: 5rem;
     font-size: 22px;
     background-color: transparent;
     color: azure;
-    align-self: flex-end;
+    align-self: center;
     border: 2px solid azure;
     line-height: 5rem;
 
@@ -159,21 +227,52 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-}
-
-.intro p {
-
-    @media only screen and (max-width: 600px) {
-        font-size: 16px;
-    }
+    padding: 2rem;
+    margin-left: 1rem;
 }
 
 .intro h2 {
-
+    font-size: 55px;
+    padding-left: 1.5rem;
+    padding-top: 4rem;
     @media only screen and (max-width: 600px) {
         font-size: 20px;
     }
+}
+
+.intro p {
+    padding-top: 4rem;
+    padding-left: 2rem;
+}
+
+.intro-bar {
+    width: 100%;
+    padding-left: 2rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: top;
+}
+
+.intro-bar p {
+    display: none;
+}
+
+.intro-bar .starburst {
+    background: #E67E22;
+    width: 4em;
+    height: 4em;
+    font-size: 3px;
+    text-align: center;
+    // color: #fff;
+    transform: rotate(-45deg);
+    margin-right: 1rem;
+    align-self: center;
+}
+
+.intro-bar h2 {
+    font-size: 22px;
+    align-self: top;
 }
 
 img {
@@ -185,50 +284,48 @@ img {
     }
 }
 
-.art-credits {
-    height: 50px;
-    width: 60%;
-    color: azure;
-    transform: rotate3d(0, 0, 1, 0.47rad);
-    position: relative;
-    left: 25%;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-}
+// .art-credits {
+//     height: 50px;
+//     width: 60%;
+//     color: azure;
+//     transform: rotate3d(0, 0, 1, 0.47rad);
+//     position: relative;
+//     left: 25%;
+//     bottom: 0;
+//     display: flex;
+//     flex-direction: column;
+// }
 
-.art-credits a {
-    padding-left: 5%;
-    font-size: 25px;
-    color: azure;
-    text-align: left;
-    width: 40%;
-}
+// .art-credits a {
+//     padding-left: 5%;
+//     font-size: 25px;
+//     color: azure;
+//     text-align: left;
+//     width: 40%;
+// }
 
-.art-credits h2 {
-    font-size: 14px;
-    margin: 0;
-    padding-left: 5%;
-    font-weight: bolder;
-    text-align: left;
-    width: 40%;
-}
+// .art-credits h2 {
+//     font-size: 14px;
+//     margin: 0;
+//     padding-left: 5%;
+//     font-weight: bolder;
+//     text-align: left;
+//     width: 40%;
+// }
 
+// .shoutout {
+//     text-decoration: none;
+//     color: azure;
+//     padding: 1rem;
+//     background: linear-gradient(to left, transparent 50%, #E67E22 50%) right;
+//     background-size: 201% 100%;
+//     transition: .5s ease-out;
+// }
 
-
-.shoutout {
-    text-decoration: none;
-    color: azure;
-    padding: 1rem;
-    background: linear-gradient(to left, transparent 50%, #E67E22 50%) right;
-    background-size: 201% 100%;
-    transition: .5s ease-out;
-}
-
-.shoutout:hover {
-    /* color: #E67E22; */
-    background-position: left;
-}
+// .shoutout:hover {
+//     /* color: #E67E22; */
+//     background-position: left;
+// }
 
 .img-container h3 {
     font-size: 15px;
@@ -238,7 +335,7 @@ img {
 
 .site-title h2 {
     margin: 0;
-    align-self: center;
+    // align-self: center;
     text-align: left;
 }
 

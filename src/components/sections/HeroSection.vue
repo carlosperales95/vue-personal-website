@@ -3,17 +3,18 @@
         <template v-slot:header>
             <socials-bar/>
             <div class="intro">
-                <p> Hello ! I am </p>
+                <div class="starburst"> <span> Hello! </span> </div>
                 <h2>SapoKode</h2>
+                <p> - Software Engineer</p>
             </div>
         </template>
 
         <template v-slot:left>
             <img src="../../assets/hero/isoroom.gif"/>
-            <div class="art-credits">
+            <!-- <div class="art-credits">
                 <h2>VOXELART BY:</h2>
                 <a class="shoutout" href="https://www.behance.net/sircarma">SIRCARMA</a>
-            </div>
+            </div> -->
         </template>
     </hero-layout>
 </template>
