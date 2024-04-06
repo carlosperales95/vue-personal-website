@@ -1,14 +1,5 @@
 <template>
     <hero-layout>
-        <template v-slot:header>
-            <socials-bar/>
-            <div class="intro">
-                <div class="starburst"> <span> Hello! </span> </div>
-                <h2>SapoKode</h2>
-                <p> - Software Engineer</p>
-            </div>
-        </template>
-
         <template v-slot:left>
             <img src="../../assets/hero/isoroom.gif"/>
             <!-- <div class="art-credits">
@@ -22,7 +13,6 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router';
 import HeroLayout from '../layouts/HeroLayout.vue';
-import SocialsBar from '../base/SocialsBar.vue';
 
 import '../../assets/sections/hero.scss'
 
@@ -31,8 +21,7 @@ export default {
     components: {
         RouterLink,
         RouterView,
-        SocialsBar,
-        HeroLayout
+        HeroLayout,
     },
 }
 </script>

@@ -11,7 +11,7 @@
         <h4>PROJECTS</h4>
         <ul>
           <li v-for="project in projects" :key="project.id" @mouseover="changeImageUrl(project.id)">
-            {{ project.name }}
+            {{ project.link_name }}
           </li>
         </ul>
       </div>
@@ -30,12 +30,14 @@
       </div>
       <div class="cell rowed">
         <div>
-          <h2>COSA:</h2>
-          <p>Algo</p>
+          <h2>{{ selectedProject.title.toUpperCase() }}:</h2>
+          <p>{{ selectedProject.description }}</p>
         </div>
         <div>
-          <h2>COSA:</h2>
-          <p>Algo</p>
+          <h2>STACK:</h2>
+          <p v-for="tech in selectedProject.technologies" :key="tech">
+            {{ tech }}
+          </p>
         </div>
       </div>
     </div>
@@ -45,16 +47,12 @@
       </div>
       <div class="proj-container cell">
         <ul>
-          <li>PROJ1</li>
+          <li><a :href="selectedProject.git_url">CODE REPO</a></li>
           <li>PROJ2</li>
           <li>PROJ3</li>
           <li>PROJ4</li>
           <li>PROJ5</li>
           <li>PROJ6</li>
-          <li>PROJ7</li>
-          <li>PROJ8</li>
-          <li>PROJ9</li>
-          <li>PROJ10</li>
         </ul>
       </div>
       <div class="cell">
@@ -98,48 +96,101 @@ export default {
     const projects = ref([
       {
         id: '1',
-        name: 'PROJ1',
-        img_url: 'glitch-sword.png'
+        link_name: 'PROJ1',
+        title: 'Pinia Knowledge',
+        description: `
+Pinia Knowledge is an example of a personal knowledge manager, where the user saves the courses they want to follow, quite similat to a ToDo list.
+The features include:
+
+    Listing courses
+    Adding course
+    Modifying a course
+    Deleting a course
+
+The data is managed using Firebase as DB, where all courses are saved.`,
+        technologies: ["java", "sql", "spring"],
+        img_url: 'glitch-sword.png',
+        git_url: "https://github.com/carlosperales95/frontend-knowledge"
       },
       {
         id: '2',
-        name: "PROJ2",
-        img_url: 'arcades.gif'
+        link_name: "PROJ2",
+        title: 'Fluid Box',
+        description: `
+I started this project to practice some Vue.js, since most of the things I've been doing were made with React.`,
+        technologies: ["java", "sql", "spring"],
+        img_url: 'water-concept.png',
+        git_url: "https://github.com/carlosperales95/fluid-box-css"
       },
       {
         id: '3',
-        name: "PROJ3",
-        img_url: 'basement-office.jpeg'
+        link_name: "PROJ3",
+        title: 'Hacker Effect',
+        description: `
+I started this project to practice some Vue.js, since most of the things I've been doing were made with React.`,
+        technologies: ["java", "sql", "spring"],
+        img_url: 'preview-concept-hacker.png',
+        git_url: "https://github.com/carlosperales95/hacker-effect-title"
       },
       {
         id: '4',
-        name: "PROJ4",
-        img_url: 'cyberpunk-office.jpeg'
+        link_name: "PROJ4",
+        title: 'Card Hover Effect',
+        description: `
+I started this project to practice some Vue.js, since most of the things I've been doing were made with React.`,        technologies: ["js", "html", "css", "vue", "pinia"],
+        img_url: 'preview-concept.png',
+        git_url: "https://github.com/carlosperales95/light-card-hover"
       },
       {
         id: '5',
-        name: "PROJ5",
-        img_url: 'cyberpunk-office.jpeg'
+        link_name: "PROJ5",
+        title: 'Habit Tracker',
+        description: `
+Started this project to practice some Vue.js + Pinia for store management.
+The project is a simple habit tracker application, that allows to keep track of the habits the user wants to follow.`,
+        technologies: ["js", "html", "css", "react", "webpack"],
+        img_url: 'sunny-git.png',
+        git_url: "https://github.com/carlosperales95/vue-pinia-habit-tracker"
       },
       {
         id: '6',
-        name: "PROJ6",
-        img_url: 'futuristic-office.jpeg'
+        link_name: "PROJ6",
+        title: 'Padel Tour',
+        description: `
+        I started this project to practice some Vue.js, since most of the things I've been doing were made with React. 
+        In addition, some friends want to organize a Padel tournament, so maybe this could help us reach to as many people as possible with a great presentaion.`,
+        technologies: ["python", "flask", "django", "html", "css"],
+        img_url: 'padeltour-git.png',
+        git_url: "https://github.com/carlosperales95/vue-padel-tour"
       },
       {
         id: '7',
-        name: "PROJ7",
-        img_url: 'pixel-desk.gif'
+        link_name: "PROJ7",
+        title: 'Plugin LogReader',
+        description: "Small project made at work to improve readability and filtering of plugin integration logs",
+        technologies: ["python", "flask", "django", "html", "css"],
+        img_url: 'logreader-pic.png',
+        git_url: "https://github.com/carlosperales95/plugin-beauty-logreader"
       },
       {
         id: '8',
-        name: "PROJ8",
-        img_url: 'robot-coding.gif'
+        link_name: "PROJ8",
+        title: 'Magento Headless Example',
+        description: `This project made at work provides a demo for integrating Magento payment plugin with Vue.js in a headless architecture, using Gitpod as the development environment. 
+        This demo allows developing and testing Magento storefront using Vue.js components, while keeping the backend functionality and data management in Magento.`,
+        technologies: ["js", "html", "css", "react", "webpack"],
+        img_url: 'robot-coding.gif',
+        git_url: "https://github.com/adyen-examples/magento-headless-demo"
+
       },
       {
         id: '9',
-        name: "PROJ9",
-        img_url: 'millionaire-office.png'
+        link_name: "PROJ9",
+        title: "frogKode",
+        description: "Small project aimed to become a beginner cheatsheet for basic html elements for a future course",
+        technologies: ["js", "html", "css", "react", "webpack"],
+        img_url: 'millionaire-office.png',
+        git_url: "https://github.com/carlosperales95/frogKode"
       }
     ]);
 
@@ -151,12 +202,16 @@ export default {
           Although my real name has nothing to do with toads, they have become my official mascot. The toad is also big in japanese culture, which I draw a lot of inspiration from.`;
 
 
-    const showImageUrl = ref(new URL(`../assets/hero/${projects.value[0].img_url}`, import.meta.url).href);
+    const showImageUrl = ref(new URL(`../assets/projects/${projects.value[0].img_url}`, import.meta.url).href);
+
+    const selectedProject = ref(projects.value[0]);
 
     const changeImageUrl = (id) => {
       const imgUrl = projects.value.find(proj => proj.id === id).img_url;
 
-      showImageUrl.value = new URL(`../assets/hero/${imgUrl}`, import.meta.url).href;
+      showImageUrl.value = new URL(`../assets/projects/${imgUrl}`, import.meta.url).href;
+
+      selectedProject.value = projects.value.find(proj => proj.id === id);
     };
 
 
@@ -165,6 +220,7 @@ export default {
       text,
       projects,
       showImageUrl,
+      selectedProject,
       changeImageUrl
     }
   },
@@ -174,7 +230,6 @@ export default {
 
 <style scoped>
 .projects {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   color: black;
@@ -185,6 +240,7 @@ export default {
 body {
   min-height: 100vh;
   max-height: 100vh;
+  overflow-y: hidden;
 }
 
 .back-btn {
@@ -258,10 +314,12 @@ h4 {
   margin: 0;
 }
 
-.cell p {
-  font-size: 9px;
+.cell p,
+.cell pre {
+  font-size: 12px;
   margin: 0;
 }
+
 
 /* .cell h2 {
   font-size: 25px;
@@ -296,9 +354,20 @@ h4 {
   padding: 0.4rem;
   text-align: center;
   /* min-height: 50vh; */
+  overflow: hidden;
+  height: 500px;
+  width: 900px;
+
+}
+
+.view-container img {
+  max-height: 80%;
+  width: auto;
+  /* object-fit: contain; */
 }
 
 img {
   max-width: 80%;
+  height: auto;
 }
 </style>

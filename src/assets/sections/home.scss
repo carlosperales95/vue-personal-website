@@ -1,3 +1,99 @@
+
+// NavBar
+.site-title-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row-reverse;
+    
+    align-items: flex-end;
+    text-align: right;
+
+    font-family: 'Karma Future';
+    color: black;
+    background-color: azure;
+
+    transition: all 0.5s ease-in;
+    z-index: 999;
+
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    @media only screen and (min-width: 768px) {
+        padding-right: 5%;
+        margin-bottom: 1rem;
+    }
+}
+
+.site-title {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 20vh;
+    width: 100%;
+    // background-color: aliceblue;
+    font-family: 'Karma Future';
+    color: azure;
+    transition: all 0.5s ease-in;
+    background: rgb(0, 0, 0)
+}
+
+.starburst {
+    background: #E67E22;
+    width: 4em;
+    height: 4em;
+    text-align: center;
+    // color: #fff;
+    transform: rotate(-45deg);
+}
+
+.starburst,
+.starburst span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.starburst span {
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    transform: rotate(45deg);
+}
+
+.starburst:before,
+.starburst:after ,
+.starburst span:before,
+.starburst span:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    z-index: -1;
+    transform: rotate(30deg);
+}
+
+.starburst:after {
+    transform: rotate(-30deg);
+}
+
+.starburst span:after {
+    transform: rotate(30deg);
+}
+.starburst span:before {
+    transform: rotate(-30deg);
+}
+
+
+// Presentation card area
+
 .about-container {
     display: flex;
     flex-direction: column;

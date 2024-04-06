@@ -1,5 +1,8 @@
 <template>
   <!-- <parallax></parallax> -->
+  <div id="navbar" class="site-title">
+    <nav-bar />
+  </div>
   <hero-section @trigger-show="triggerAboutMe"></hero-section>
   <div class="about-container" v-if="!hideContent">
     <div class="separator">
@@ -52,6 +55,8 @@ import Parallax from '@/components/base/Parallax.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
 import EmployeeCard from '@/components/base/EmployeeCard.vue'
 import ResumeLayout from '@/components/layouts/ResumeLayout.vue';
+import NavBar from '@/components/base/NavBar.vue';
+
 
 import '../assets/sections/home.scss'
 
@@ -62,7 +67,8 @@ export default {
     Parallax,
     HeroSection,
     EmployeeCard,
-    ResumeLayout
+    ResumeLayout,
+    NavBar
   },
   setup() {
 
@@ -92,13 +98,17 @@ export default {
     const triggerAboutMe = function() {
       hideContent.value = false;
       setTimeout(function() {
+        window.scrollTo({
+          top: document.querySelector(".about-container").getBoundingClientRect().top + window.scrollY - 200,
+          behavior: "smooth"});
         
-        document.querySelector(".about-container")
-          .scrollIntoView({
-              behavior: 'smooth'
-            });
+        // document.querySelector(".about-container")
+        //   .scrollIntoView({
+        //       behavior: 'smooth'
+        //     });
       }, 2000);
     }
+
 
     return {
       hideContent,
