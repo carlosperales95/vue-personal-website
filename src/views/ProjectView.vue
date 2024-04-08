@@ -35,9 +35,9 @@
         </div>
         <div>
           <h2>STACK:</h2>
-          <p v-for="tech in selectedProject.technologies" :key="tech">
-            {{ tech }}
-          </p>
+          <div class="tech-section">
+            <tech-tag v-for="tech in selectedProject.technologies" :key="tech" :name="tech"></tech-tag>
+          </div>
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
         </ul>
       </div>
       <div class="cell">
-        <h2> hello </h2>
+        <special-nav-link/>
       </div>
     </div>
   </div>
@@ -64,9 +64,13 @@
 
 <script>
 import { ref } from 'vue';
+import TechTag from '@/components/base/TechTag.vue';
+import SpecialNavLink from '@/components/base/SpecialNavLink.vue';
 
 export default {
   components: {
+    TechTag,
+    SpecialNavLink
   },
   setup() {
 
@@ -202,16 +206,14 @@ The project is a simple habit tracker application, that allows to keep track of 
           Although my real name has nothing to do with toads, they have become my official mascot. The toad is also big in japanese culture, which I draw a lot of inspiration from.`;
 
 
-    const showImageUrl = ref(new URL(`../assets/projects/${projects.value[0].img_url}`, import.meta.url).href);
-
     const selectedProject = ref(projects.value[0]);
+    const showImageUrl = ref(new URL(`../assets/projects/${selectedProject.value.img_url}`, import.meta.url).href);
+
 
     const changeImageUrl = (id) => {
-      const imgUrl = projects.value.find(proj => proj.id === id).img_url;
-
-      showImageUrl.value = new URL(`../assets/projects/${imgUrl}`, import.meta.url).href;
-
       selectedProject.value = projects.value.find(proj => proj.id === id);
+
+      showImageUrl.value = new URL(`../assets/projects/${selectedProject.value.img_url}`, import.meta.url).href;
     };
 
 
@@ -369,5 +371,10 @@ h4 {
 img {
   max-width: 80%;
   height: auto;
+}
+
+.tech-section {
+  display: flex;
+  flex-direction: row
 }
 </style>
