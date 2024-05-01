@@ -1,50 +1,50 @@
 <template>
   <!-- <parallax></parallax> -->
-  <div id="navbar" class="site-title">
+  <div>
     <nav-bar />
-  </div>
-  <hero-section @trigger-show="triggerAboutMe"></hero-section>
-  <div class="about-container" v-if="!hideContent">
-    <div class="separator">
-      <div class="about-card">
-        <h1>
-          My work is all about bringing fresh ideas and original concepts to life.
-        </h1>
-      </div>
-      <employee-card :fullName="fullName" :jobTitle="jobTitle" :aboutMe="aboutMe"></employee-card>
-
-    </div>
-    <div class="separator2">
-      <div class="about-card">
-        <h1>
-          I develop reliable and scalable software that stands out with creativity and personality.
-        </h1>
-      </div>
-    </div>
-    <resume-layout></resume-layout>
-    <div class="centered-content">
-      <!-- <timeline-section></timeline-section> -->
-      <!-- <section class="others section">
-        <h2>Background</h2>
-        <div v-for="project in projects" :key="project.id" class="project">
-          <h3>{{ project.name }}</h3>
-          <p>{{ project.description }}</p>
+    <hero-section @trigger-show="triggerAboutMe"></hero-section>
+    <div class="about-container" v-if="!hideContent">
+      <div class="separator">
+        <div class="about-card">
+          <h1>
+            My work is all about bringing fresh ideas and original concepts to life.
+          </h1>
         </div>
-      </section>
+        <employee-card :fullName="fullName" :jobTitle="jobTitle" :aboutMe="aboutMe"></employee-card>
 
-      <section class="projects section">
-        <h2>Projects</h2>
-        <div v-for="project in projects" :key="project.id" class="project">
-          <h3>{{ project.name }}</h3>
-          <p>{{ project.description }}</p>
+      </div>
+      <div class="separator2">
+        <div class="about-card">
+          <h1>
+            I develop reliable and scalable software that stands out with creativity and personality.
+          </h1>
         </div>
-      </section>
+      </div>
+      <resume-layout></resume-layout>
+      <div class="centered-content">
+        <!-- <timeline-section></timeline-section> -->
+        <!-- <section class="others section">
+          <h2>Background</h2>
+          <div v-for="project in projects" :key="project.id" class="project">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+          </div>
+        </section>
 
-      <section class="contact section">
-        <h2>Contact</h2>
-        <p>Email: {{ email }}</p>
-        <p>LinkedIn: {{ linkedin }}</p>
-      </section> -->
+        <section class="projects section">
+          <h2>Projects</h2>
+          <div v-for="project in projects" :key="project.id" class="project">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.description }}</p>
+          </div>
+        </section>
+
+        <section class="contact section">
+          <h2>Contact</h2>
+          <p>Email: {{ email }}</p>
+          <p>LinkedIn: {{ linkedin }}</p>
+        </section> -->
+      </div>
     </div>
   </div>
 </template>

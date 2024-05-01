@@ -19,10 +19,11 @@ export default {
 .special-link-wrap {
     display: flex;
     flex-wrap: wrap;
+    /* background-color: black; */
 }
 
 .filled-background {
-    background: linear-gradient(to left, black 50%, transparent 50%) right;
+    background: linear-gradient(to left, black 50%, #E67E22 50%) right;
     background-size: 201% 100%;
     transition: .5s ease-out;
     font-size: 50px;

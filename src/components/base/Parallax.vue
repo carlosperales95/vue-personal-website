@@ -85,7 +85,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #f8bc74;
 }
 h2 {
