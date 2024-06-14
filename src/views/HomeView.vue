@@ -3,62 +3,22 @@
   <div>
     <nav-bar />
     <hero-section @trigger-show="triggerAboutMe"></hero-section>
-    <div class="about-container" v-if="!hideContent">
-      <div class="separator">
-        <div class="about-card">
-          <h1>
-            My work is all about bringing fresh ideas and original concepts to life.
-          </h1>
-        </div>
-        <employee-card :fullName="fullName" :jobTitle="jobTitle" :aboutMe="aboutMe"></employee-card>
-
-      </div>
-      <div class="separator2">
-        <div class="about-card">
-          <h1>
-            I develop reliable and scalable software that stands out with creativity and personality.
-          </h1>
-        </div>
-      </div>
-      <resume-layout></resume-layout>
+      <about-section :hideContent="hideContent"></about-section>
       <div class="centered-content">
-        <!-- <timeline-section></timeline-section> -->
-        <!-- <section class="others section">
-          <h2>Background</h2>
-          <div v-for="project in projects" :key="project.id" class="project">
-            <h3>{{ project.name }}</h3>
-            <p>{{ project.description }}</p>
-          </div>
-        </section>
-
-        <section class="projects section">
-          <h2>Projects</h2>
-          <div v-for="project in projects" :key="project.id" class="project">
-            <h3>{{ project.name }}</h3>
-            <p>{{ project.description }}</p>
-          </div>
-        </section>
-
-        <section class="contact section">
-          <h2>Contact</h2>
-          <p>Email: {{ email }}</p>
-          <p>LinkedIn: {{ linkedin }}</p>
-        </section> -->
+        <resume-layout></resume-layout>
       </div>
-    </div>
   </div>
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import Parallax from '@/components/base/Parallax.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
-import EmployeeCard from '@/components/base/EmployeeCard.vue'
 import ResumeLayout from '@/components/layouts/ResumeLayout.vue';
 import NavBar from '@/components/base/NavBar.vue';
 
-
 import '../assets/sections/home.scss'
+import AboutSection from '@/components/sections/AboutSection.vue';
 
 
 export default {
@@ -66,9 +26,9 @@ export default {
     // TimelineSection,
     Parallax,
     HeroSection,
-    EmployeeCard,
     ResumeLayout,
-    NavBar
+    NavBar,
+    AboutSection
   },
   setup() {
 
@@ -118,7 +78,7 @@ export default {
       projects,
       email,
       linkedin,
-      triggerAboutMe
+      triggerAboutMe,
     };
   },
 };

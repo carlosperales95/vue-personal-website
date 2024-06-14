@@ -2,13 +2,11 @@
     <div class="hero-container">
         <div class="nav-container">
             <div class="links">
-                <div class="container">
+                <div class="container hero-size">
                     <ul>
                         <li><router-link class="filled-background" to="/projects">Projects</router-link></li>
-                        <!-- <li><router-link class="filled-background" to="/">Courses</router-link></li> -->
                         <li><router-link class="filled-background" to="/devlogs">DevLogs</router-link></li>
                         <li><router-link class="filled-background" to="/">Photography</router-link></li>
-                        <!-- <li><router-link class="filled-background" to="/">Music</router-link></li> -->
                     </ul>
                     <div class="img-container">
                         <slot name="left">

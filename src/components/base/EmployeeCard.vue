@@ -1,5 +1,5 @@
 <template>
-    <section class="about section">
+    <div class="about boutsec">
         <div class="employee-card">
             <h1>HELLO my name is</h1>
             <div class="employee-info">
@@ -17,7 +17,7 @@
             </div>
             <p class="about-description">{{ aboutMe }}</p>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -31,12 +31,9 @@ export default {
 
 <style scoped>
 .section {
-    margin-bottom: 20px;
-    padding: 20px;
+    /* margin-bottom: 20px; */
     border-radius: 8px;
-    max-width: 40%;
     margin: 0 8% 0 auto;
-    padding: 20px;
     position: relative;
     bottom: -20vh;
 }

@@ -49,6 +49,7 @@
 </template>
 <script>
 import { ref, reactive } from 'vue';
+import { useProjectsStore } from '@/stores/projects'
 import EventRow from '../base/EventRow.vue';
 import IconBaby from '../icons/IconBaby.vue';
 import IconCalendar from '../icons/IconCalendar.vue';
@@ -62,94 +63,14 @@ export default {
         IconCalendar,
     },
     setup() {
+        const projectsStore = useProjectsStore();
 
         const line = reactive({
             started: false,
             complete: false
         });
 
-        const events = ref([
-            {
-                id: 1,
-                type: 'studies',
-                year: 2015,
-                location: 'La Salle Bilbao',
-                name: 'High School',
-                description: 'Description of Event 1',
-                show: false,
-                clicked: false
-            },
-            {
-                id: 2,
-                type: 'work',
-                year: 2016,
-                location: 'DeustoTech',
-                name: 'Internship DeustoTech',
-                description: 'Extracurricular internship in collaboration with Deustotech Lab, a research oriented development lab at the University of Deusto. I was responsible, together with another intern, for the development of several research academic projects.',
-                show: false,
-                clicked: false
-            },
-            {
-                id: 3,
-                type: 'work',
-                year: 'January 2017',
-                location: 'WeNite',
-                name: 'Internship WeNite',
-                description: 'Curricular internship in collaboration with WeNite. Resposible for the front-end development, coding the solution with Node.js + HTML + CSS and translating it into iOS and Android app format using Apache Cordova. The goal was to develop the full pilot for their app, a nightlife app for iOS an Android.',
-                show: false,
-                clicked: false
-            },
-            {
-                id: 4,
-                type: 'studies',
-                year: 'August 2017',
-                location: 'University of Deusto',
-                name: 'CS degree',
-                description: 'Completed the Computer Engineering Bachelors degree in the University of Deusto.',
-                show: false,
-                clicked: false
-            },
-            {
-                id: 5,
-                type: 'work',
-                year: 2019,
-                location: 'Luggo',
-                name: 'Full Stack Developer',
-                description: 'Part time job in the early stages of the company now known as Luggo, where I originally started as a front-end developer. Later on, I also assumed some of the backend development responsibilities, working as a full-stack developer for the rest of my stay.',
-                show: false,
-                clicked: false
-            },
-            {
-                id: 6,
-                type: 'work',
-                year: 2020,
-                location: 'University of Bologna',
-                name: 'Traineeship in Unibo',
-                description: 'Spent a full academic year in Bologna, Italy. During this time I followed a traineeship of 6 months, in which I carried out my master thesis on Machine Learning and Natural Language Processing.',
-                show: false,
-                clicked: false
-            },
-            {
-                id: 7,
-                type: 'studies',
-                year: 'June 2021',
-                location: 'VU + UvA',
-                name: 'Msc Degree',
-                description: 'Completed the Computer Science Masters degree, following the track of Software Engineering + Green IT. ',
-                show: false,
-                clicked: false
-            },
-            {
-                id: 8,
-                type: 'work',
-                year: 'July 2021',
-                location: 'Adyen',
-                name: 'Technical Support Engineer',
-                description: 'Current role',
-                show: false,
-                clicked: false
-            },
-        ]);
+        const events = ref(projectsStore.timelineEvents);
 
         const startTimeline = () => {
             // For starter node, set line to started and reveal first event
