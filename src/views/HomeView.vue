@@ -7,6 +7,7 @@
       <div class="centered-content">
         <resume-layout></resume-layout>
       </div>
+      <about-section :hideContent="hideContent"></about-section>
   </div>
 </template>
 
