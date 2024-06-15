@@ -81,6 +81,7 @@ svg {
 .clicked button {
     background-color: #E67E22;
     pointer-events: none;
+    border-color: #1a1a1a;
 }
 
 .clicked span {
@@ -187,13 +188,14 @@ svg {
     height: 30px;
     border-radius: 20px;
     margin-top: 0px;
-    background-color: aqua;
+    background-color: #1a1a1a;
+    border-color: #E67E22;
 }
 
 .line {
     width: 3px;
     height: 0;
-    background-color: aqua;
+    background-color: #E67E22;
 }
 
 .event {

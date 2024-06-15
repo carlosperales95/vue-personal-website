@@ -41,21 +41,14 @@ export default {
                 scrollAmount.value = event.deltaY / DIVIDE_AMOUNT;
                 
                 const elem = document.querySelector(".boutsec");
-
                 if(!elem.style.top) {
                     elem.style.top = elemTop.value;
                     
                 }
-
                 const newTop = parseInt(elem.style.top.replace("px", "")) - scrollAmount.value;
-                console.log(newTop);
-                console.log(newTop < 200 && newTop > -200);
 
                 if(newTop <= 500 && newTop >= -500) {
                     elem.style.top = newTop + "px";
-                    console.log("scrollAM:  " + scrollAmount.value);
-                    console.log("savedTOP:  " + elemTop.value);;
-                    console.log("elemTOP:  " + elem.style.top);
                     elemTop.value = elem.style.top
                 }
             });

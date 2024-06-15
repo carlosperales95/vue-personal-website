@@ -103,7 +103,7 @@ section {
 .skills-container {
     font-family: 'Chakra Petch', sans-serif;
     color: azure;
-    min-width: 30%;
+    width: 20vw;
     border-radius: 20px;
     // border: 3px solid #E67E22;
     margin-top: 1rem;
@@ -152,6 +152,50 @@ section {
     padding: 1rem 1rem 0rem 0.5rem;
 }
 
+.stat-bar-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.stat-bar-wrapper .skill-icon {
+    padding: .5rem;
+}
+
+.stat-btn-wrapper {
+    width: 60px;
+    border-radius: 40px;
+    margin-right: .5rem;
+    transition: background-color .5s ease-in;
+}
+
+.stat-btn-wrapper:hover {
+    background-color: #d3c336;
+}
+
+.selected-tab {
+    background-color: black;
+}
+
+.selected-tab:hover {
+    background-color: black;
+}
+
+.stack-icon {
+    width: 50px;
+    height: 50px;
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: .3rem;
+}
+
+.stat-tech-title {
+    border-top: 1px solid azure;
+    border-bottom: 1px solid azure;
+    margin-bottom: 2rem;
+}
+
 .skill-icon {
     width: 50px;
     height: 50px;
@@ -161,20 +205,133 @@ section {
 }
 
 .fe-icon {
-    background-image: url(frontend.svg);
+    background-image: url(svgs/frontend-icon.svg);
 }
 
 .be-icon {
-    background-image: url(backend.svg);
+    background-image: url(svgs/backend-icon.svg);
 }
 
 .ch-icon {
-    background-image: url(backend.svg);
+    background-image: url(svgs/backend-icon.svg);
 }
 
-.luck-icon {
-    background-image: url(luck.svg);
+.oth-icon {
+    background-image: url(svgs/luck-icon.svg);
 }
+
+.html-icon {
+    background-image: url(svgs/html-icon.svg);
+}
+
+.css-icon {
+    background-image: url(svgs/css-icon.svg);
+}
+
+.js-icon {
+    background-image: url(svgs/js-icon.svg);
+}
+
+.sass-icon {
+    background-image: url(svgs/sass-icon.svg);
+}
+
+.react-icon {
+    background-image: url(svgs/react-icon.svg);
+}
+
+.vue-icon {
+    background-image: url(svgs/vue-icon.svg);
+}
+
+.sqlite-icon {
+    background-image: url(svgs/sqlite-icon.svg);
+}
+
+.mysql-icon {
+    background-image: url(svgs/mysql-icon.svg);
+}
+
+.django-icon {
+    background-image: url(svgs/django-icon.svg);
+}
+
+.node-icon {
+    background-image: url(svgs/node-icon.svg);
+}
+
+.java-icon {
+    background-image: url(svgs/java-icon.svg);
+}
+
+.python-icon {
+    background-image: url(svgs/python-icon.svg);
+}
+
+.git-icon {
+    background-image: url(svgs/git-icon.svg);
+}
+
+.angular-icon {
+    background-image: url(svgs/angular-icon.svg);
+}
+
+.flask-icon {
+    background-image: url(svgs/flask-icon.svg);
+}
+
+.postgres-icon {
+    background-image: url(svgs/postgres-icon.svg);
+}
+
+.firebase-icon {
+    background-image: url(svgs/firebase-icon.svg);
+}
+
+.php-icon {
+    background-image: url(svgs/php-icon.svg);
+}
+
+.spring-icon {
+    background-image: url(svgs/spring-icon.svg);
+}
+
+.symfony-icon {
+    background-image: url(svgs/symfony-icon.svg);
+}
+
+.docker-icon {
+    background-image: url(svgs/docker-icon.svg);
+}
+
+.bash-icon {
+    background-image: url(svgs/bash-icon.svg);
+}
+
+
+.tech-icons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.tech-icon {
+    width: 60px;
+    height: 60px;
+    padding: 1.2rem;
+    background-size: 60px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px #ff9131 solid;
+    border-radius: 15px;
+    transition: border-color .2s ease-in;
+}
+
+.tech-icon:hover {
+    border-color: #d3c336;
+}
+
 
 .bar-toggle-btn {
     height: 50px;
@@ -187,6 +344,38 @@ section {
     color: blue;
 }
 
+.about-me-container {
+    height: 40vh;
+    width: 100%;
+    // background-color: #E67E22;
+    color: azure;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid azure;
+}
+
+.about-me-container p {
+    width: 60%;
+    text-align: justify;
+}
+
+.about-me-container ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+}
+
+.about-me-container ul li {
+    width: 80%;
+    padding: 1rem;
+    margin: 0rem 1rem 0 0.5rem;
+    border-radius: .5rem;
+    border: #E67E22 1px solid;
+}
+
+.about-me-container .skills-container {
+    margin-top: 0;
+}
 
 .circle{
     position: absolute;

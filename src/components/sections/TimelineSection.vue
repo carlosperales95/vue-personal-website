@@ -1,7 +1,7 @@
 <template>
     <section class="events section">
         <div class="prompt-wrapper">
-            <h2>Click to start timeline</h2>
+            <h2>Timeline loaded.</h2>
             <span class="blinking-cursor">|</span>
         </div>
 

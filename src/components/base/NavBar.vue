@@ -33,7 +33,7 @@ export default {
         //     }
         // }
         window.addEventListener("scroll", function() {
-            console.log("Im scrolling!");
+            // console.log("Im scrolling!");
             if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
                 changeStyle("full");
             } else {

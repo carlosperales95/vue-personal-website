@@ -30,8 +30,8 @@ export default {
     },
     setup() {
         onMounted(() => {
-            console.log("mounted");
-            console.log(document.getElementById("#scene=container"));
+            // console.log("mounted");
+            // console.log(document.getElementById("#scene=container"));
             const container = document.querySelector("#scene-container");
             
             // Create an instance of the World app

@@ -35,7 +35,7 @@ export default {
     border-radius: 8px;
     margin: 0 8% 0 auto;
     position: relative;
-    bottom: -20vh;
+    bottom: -500vh;
 }
 
 .employee-card {
