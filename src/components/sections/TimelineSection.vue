@@ -1,6 +1,9 @@
 <template>
     <section class="events section">
-        <h2>Event Line</h2>
+        <div class="prompt-wrapper">
+            <h2>Click to start timeline</h2>
+            <span class="blinking-cursor">|</span>
+        </div>
 
         <event-row
             :type="'start-container'"

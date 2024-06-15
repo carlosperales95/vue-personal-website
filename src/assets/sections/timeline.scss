@@ -1,13 +1,42 @@
 // Section Layout base styles
+
+.prompt-wrapper {
+    display: flex;
+    margin-bottom: 6rem;
+}
+
+.blinking-cursor {
+    font-weight: 100;
+    font-size: 40px;
+    color: #2E3D48;
+    animation: 1s blink step-end infinite;
+    align-self: flex-end;
+}
+
+@keyframes blink {
+    from, to {
+    color: transparent;
+    }
+    50% {
+        color: azure;
+    }
+}
+
 .events {
-    background-color: #fff3f3;
-    color: #111111;
+    // background-color: #fff3f3;
+    background-color: transparent;
+    // color: #111111;
+    color: azure;
     display: flex;
     flex-direction: column;
 }
 
+.events h1 {
+    margin: 0;
+}
+
 .events h2 {
-    margin-bottom: 10rem;
+    margin-bottom: 0;
 }
 
 .event h3 {
@@ -40,15 +69,17 @@ svg {
 .baby {
     margin-left: 5px;
     padding-right: 5px;
+    fill: #E67E22;
 }
 
 .calendar {
     padding-right: 15px;
+    fill: #E67E22;
 }
 
 // Event row styles
 .clicked button {
-    background-color: azure;
+    background-color: #E67E22;
     pointer-events: none;
 }
 
@@ -57,9 +88,6 @@ svg {
     transition: height 1s ease-out;
 }
 
-.events h2 {
-    margin-bottom: 6rem;
-}
 
 .start-container,
 .end-container {
@@ -127,7 +155,7 @@ svg {
     content: "";
     width: 10px;
     height: 3px;
-    background-color: #1a1a1a;
+    // background-color: #1a1a1a;
     display: block;
     animation: extend 0.2s ease-out;
 
@@ -169,7 +197,8 @@ svg {
 }
 
 .event {
-    border: 1px solid #111111;
+    // border: 1px solid #111111;
+    border: 1px solid #E67E22;
     padding: 1rem;
     margin-bottom: 2rem;
     text-align: left;
@@ -181,7 +210,7 @@ svg {
 
 .end-container button {
     pointer-events: none;
-    background-color: azure;
+    background-color: #E67E22;
 }
 
 .end-container .year h3 {

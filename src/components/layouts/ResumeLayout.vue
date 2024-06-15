@@ -21,12 +21,25 @@
             <pip-boy></pip-boy>
             <div class="skills-container">
                 <ul>
-                    <li>Frontend Power</li>
-                    <li>Backend Power</li>
-                    <li>Charisma</li>
-                    <li>Luck</li>
+                    <div class="skill-bar-wrapper">
+                        <div class="skill-icon fe-icon"></div>
+                        <li class="fill-60">Frontend Power</li>
+                    </div>
+                    <div class="skill-bar-wrapper">
+                        <div class="skill-icon be-icon"></div>
+                        <li class="fill-60">Backend Power</li>
+                    </div>
+                    <div class="skill-bar-wrapper">
+                        <div class="skill-icon fe-icon"></div>
+                        <li class="fill-75">Charisma</li>
+                    </div>
+                    <div class="skill-bar-wrapper">
+                        <div class="skill-icon luck-icon"></div>
+                        <li class="fill-90">Luck</li>
+                    </div>
                 </ul>
             </div>
+            <!-- <button class="bar-toggle-btn"></button> -->
         </div>
         <div class="slider-section">
             <timeline-section></timeline-section>
