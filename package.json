@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "leaflet": "^1.9.4",
     "pinia": "^2.1.7",
     "three": "^0.165.0",
     "vue": "^3.3.11",

@@ -8,6 +8,9 @@
         <resume-layout></resume-layout>
       </div>
       <about-section :hideContent="hideContent"></about-section>
+      <location-map></location-map>
+      <about-section :hideContent="hideContent"></about-section>
+
   </div>
 </template>
 
@@ -20,16 +23,17 @@ import NavBar from '@/components/base/NavBar.vue';
 
 import '../assets/sections/home.scss'
 import AboutSection from '@/components/sections/AboutSection.vue';
+import LocationMap from '@/components/base/LocationMap.vue';
 
 
 export default {
   components: {
-    // TimelineSection,
     Parallax,
     HeroSection,
     ResumeLayout,
     NavBar,
-    AboutSection
+    AboutSection,
+    LocationMap
   },
   setup() {
 

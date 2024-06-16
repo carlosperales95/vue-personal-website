@@ -35,7 +35,6 @@
         <button @click="changeSection('experience')">
             Experience
         </button>
-        <!-- TODO Add map of Ams as third option -->
     </div>
     <div class="ripple-background">
             <div class="circle xxxxlarge shade1"></div>
@@ -78,7 +77,6 @@
                     </div>
                 </ul>
             </div>
-            <!-- <button class="bar-toggle-btn"></button> -->
         </div>
         <div class="slider-section">
             <timeline-section></timeline-section>
