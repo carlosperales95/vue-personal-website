@@ -9,19 +9,27 @@
             <div class="skills-container">
                 <ul>
                     <div class="skill-bar-wrapper">
-                        <div class="skill-icon fe-icon"></div>
+                        <svg class="skill-icon">
+                            <use xlink:href="#frontend"></use>
+                        </svg>
                         <li class="fill-60">Frontend Power</li>
                     </div>
                     <div class="skill-bar-wrapper">
-                        <div class="skill-icon be-icon"></div>
+                        <svg class="skill-icon">
+                            <use xlink:href="#backend"></use>
+                        </svg>
                         <li class="fill-60">Backend Power</li>
                     </div>
                     <div class="skill-bar-wrapper">
-                        <div class="skill-icon fe-icon"></div>
+                        <svg class="skill-icon">
+                            <use xlink:href="#frontend"></use>
+                        </svg>
                         <li class="fill-75">Charisma</li>
                     </div>
                     <div class="skill-bar-wrapper">
-                        <div class="skill-icon oth-icon"></div>
+                        <svg class="skill-icon">
+                            <use xlink:href="#luck"></use>
+                        </svg>
                         <li class="fill-90">Luck</li>
                     </div>
                 </ul>
@@ -36,15 +44,7 @@
             Experience
         </button>
     </div>
-    <div class="ripple-background">
-            <div class="circle xxxxlarge shade1"></div>
-            <div class="circle xxxlarge shade1"></div>
-            <div class="circle xxlarge shade1"></div>
-            <div class="circle xlarge shade2"></div>
-            <div class="circle large shade3"></div>
-            <div class="circle medium shade4"></div>
-            <div class="circle small shade5"></div>
-    </div>
+    <ripple-circles></ripple-circles>
     <div class="sections" :class="{'alternative': rolledSection}">
         <div class="slider-section anothaone">
             <pip-boy></pip-boy>
@@ -57,23 +57,22 @@
                         :key="index"
                         v-for="(stck, index) in techStack"
                         >
-                            <div
-                            class="stack-icon"
-                            :class="`${stck.code}-icon`"
-                            @click="changeStack(stck.title)"
-                            ></div>
+                            <svg class="stack-icon" @click="changeStack(stck.title)">
+                                <use :xlink:href="`#${stck.code}`"></use>
+                            </svg>
                         </div>
                     </div>
                     <div class="stat-tech-title">
                         {{techStack[mode]["title"].toUpperCase()}}
                     </div>
                     <div class="tech-icons-wrapper">
-                        <div
-                        class="tech-icon"
-                        :class="`${tech}-icon`"
+                        <svg
                         :key="index"
                         v-for="(tech, index) in techStack[mode].techs"
-                        ></div>
+                        class="tech-icon"
+                        >
+                            <use :xlink:href="`#${tech}`"></use>
+                        </svg>
                     </div>
                 </ul>
             </div>
@@ -86,14 +85,17 @@
 <script>
 import { ref, computed } from 'vue';
 import TimelineSection from '@/components/sections/TimelineSection.vue';
+import RippleCircles from '@/components/base/RippleCircles.vue';
 import PipBoy from '@/components/base/PipBoy.vue';
-import '../../assets/sections/resume.scss'
+import '../../assets/sections/resume.scss';
+import '../../assets/sections/ripple.scss';
 
 
 export default {
     components: {
         TimelineSection,
-        PipBoy
+        PipBoy,
+        RippleCircles
     },
     setup() {
         const section = ref('skills');
@@ -108,18 +110,18 @@ export default {
         const techStack = ref({
             frontend: {
                 title: 'frontend',
-                code: 'fe',
+                code: 'frontend',
                 techs: ['html', 'css', 'js', 'sass', 'vue', 'react', 'django', 'flask']
 
             },
             backend: {
                 title: 'backend',
-                code: 'be',
+                code: 'backend',
                 techs: ['java', 'python', 'node', 'mysql', 'php', 'sqlite', 'spring', 'symfony' , 'postgres']
             },
             others: {
                 title: 'others',
-                code: 'oth',
+                code: 'luck',
                 techs: ['git', 'bash', 'docker']
             }
         });

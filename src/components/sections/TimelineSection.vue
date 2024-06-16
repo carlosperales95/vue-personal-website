@@ -14,7 +14,11 @@
         >
             <template v-slot:year>
                 <h3> 1995 </h3>
-                <icon-baby class="baby" />
+                <svg
+                    :class="'baby'"
+                    >
+                        <use xlink:href="#baby"></use>
+                    </svg>
             </template>
         </event-row>
         <event-row
@@ -44,7 +48,11 @@
         >
             <template v-slot:year>
                 <h3> 2024 </h3>
-                <icon-calendar class="calendar" />
+                <svg
+                :class="'calendar'"
+                >
+                    <use xlink:href="#calendar"></use>
+                </svg>
             </template>
         </event-row>
         <p> Text to finish the section that says something that makes sense</p>
@@ -54,16 +62,12 @@
 import { ref, reactive } from 'vue';
 import { useProjectsStore } from '@/stores/projects'
 import EventRow from '../base/EventRow.vue';
-import IconBaby from '../icons/IconBaby.vue';
-import IconCalendar from '../icons/IconCalendar.vue';
 
 import '../../assets/sections/timeline.scss'
 
 export default {
     components: {
         EventRow,
-        IconBaby,
-        IconCalendar,
     },
     setup() {
         const projectsStore = useProjectsStore();

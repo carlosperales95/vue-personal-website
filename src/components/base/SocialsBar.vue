@@ -3,10 +3,11 @@
         <ul>
             <li v-for="social in socials" :key="social.id">
                 <a class="social-link" :href="social.url">
-                    <icon-twitch v-if="social.name === 'twitch'" class="icon" />
-                    <icon-instagram v-if="social.name === 'instagram'" class="icon" />
-                    <icon-linkedin v-if="social.name === 'linkedin'" class="icon" />
-                    <icon-github v-if="social.name === 'github'" class="icon" />
+                    <svg
+                    :class="'icon'"
+                    >
+                        <use :xlink:href="`#${social.name}`"></use>
+                    </svg>
                 </a>
             </li>
         </ul>
@@ -15,17 +16,9 @@
 
 <script>
 import { ref } from 'vue';
-import IconGithub from '../icons/IconGithub.vue';
-import IconTwitch from '../icons/IconTwitch.vue';
-import IconLinkedin from '../icons/IconLinkedin.vue';
-import IconInstagram from '../icons/IconInstagram.vue';
 
 export default {
     components: {
-        IconGithub,
-        IconInstagram,
-        IconLinkedin,
-        IconTwitch
     },
     setup() {
         const socials = ref([

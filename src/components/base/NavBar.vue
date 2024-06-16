@@ -1,5 +1,7 @@
 <template>
+<IconsRepo/>
     <div id="navbar" class="site-title">
+        
         <socials-bar/>
         <div id="logo" :class="barStyle === 'full' ? 'intro' : 'intro-bar'">
             <div class="starburst"> <span> Hello! </span> </div>
@@ -13,11 +15,13 @@
 <script>
 import { ref } from 'vue';
 import SocialsBar from '../base/SocialsBar.vue';
+import IconsRepo from '../icons/IconsRepo.vue';
 
 export default {
     emits: ['trigger-bar'],
     components: {
         SocialsBar,
+        IconsRepo
     },
     setup() {
 

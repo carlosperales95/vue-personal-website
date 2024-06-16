@@ -167,18 +167,22 @@ section {
     border-radius: 40px;
     margin-right: .5rem;
     transition: background-color .5s ease-in;
+    display: flex;
 }
 
 .stat-btn-wrapper:hover {
     background-color: #d3c336;
+    cursor: pointer;
 }
 
 .selected-tab {
-    background-color: black;
+    background-color: rgb(82, 70, 21);
+    // border: 1px solid #d3c336;
 }
 
 .selected-tab:hover {
-    background-color: black;
+    background-color: rgb(82, 70, 21);
+    cursor: auto;
 }
 
 .stack-icon {
@@ -188,6 +192,9 @@ section {
     background-repeat: no-repeat;
     background-position: center;
     padding: .3rem;
+    fill: #E67E22;
+    justify-self: center;
+    align-self: center;
 }
 
 .stat-tech-title {
@@ -199,113 +206,7 @@ section {
 .skill-icon {
     width: 50px;
     height: 50px;
-    background-size: 40px;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.fe-icon {
-    background-image: url(svgs/frontend-icon.svg);
-}
-
-.be-icon {
-    background-image: url(svgs/backend-icon.svg);
-}
-
-.ch-icon {
-    background-image: url(svgs/backend-icon.svg);
-}
-
-.oth-icon {
-    background-image: url(svgs/luck-icon.svg);
-}
-
-.html-icon {
-    background-image: url(svgs/html-icon.svg);
-}
-
-.css-icon {
-    background-image: url(svgs/css-icon.svg);
-}
-
-.js-icon {
-    background-image: url(svgs/js-icon.svg);
-}
-
-.sass-icon {
-    background-image: url(svgs/sass-icon.svg);
-}
-
-.react-icon {
-    background-image: url(svgs/react-icon.svg);
-}
-
-.vue-icon {
-    background-image: url(svgs/vue-icon.svg);
-}
-
-.sqlite-icon {
-    background-image: url(svgs/sqlite-icon.svg);
-}
-
-.mysql-icon {
-    background-image: url(svgs/mysql-icon.svg);
-}
-
-.django-icon {
-    background-image: url(svgs/django-icon.svg);
-}
-
-.node-icon {
-    background-image: url(svgs/node-icon.svg);
-}
-
-.java-icon {
-    background-image: url(svgs/java-icon.svg);
-}
-
-.python-icon {
-    background-image: url(svgs/python-icon.svg);
-}
-
-.git-icon {
-    background-image: url(svgs/git-icon.svg);
-}
-
-.angular-icon {
-    background-image: url(svgs/angular-icon.svg);
-}
-
-.flask-icon {
-    background-image: url(svgs/flask-icon.svg);
-}
-
-.postgres-icon {
-    background-image: url(svgs/postgres-icon.svg);
-}
-
-.firebase-icon {
-    background-image: url(svgs/firebase-icon.svg);
-}
-
-.php-icon {
-    background-image: url(svgs/php-icon.svg);
-}
-
-.spring-icon {
-    background-image: url(svgs/spring-icon.svg);
-}
-
-.symfony-icon {
-    background-image: url(svgs/symfony-icon.svg);
-}
-
-.docker-icon {
-    background-image: url(svgs/docker-icon.svg);
-}
-
-.bash-icon {
-    background-image: url(svgs/bash-icon.svg);
+    fill: #E67E22;
 }
 
 
@@ -320,16 +221,15 @@ section {
     width: 60px;
     height: 60px;
     padding: 1.2rem;
-    background-size: 60px;
-    background-position: center;
-    background-repeat: no-repeat;
     border: 3px #ff9131 solid;
     border-radius: 15px;
-    transition: border-color .2s ease-in;
+    transition: fill .5s ease-in;
+    fill: #E67E22;
 }
 
 .tech-icon:hover {
     border-color: #d3c336;
+    fill: #d3c336;
 }
 
 
@@ -376,96 +276,4 @@ section {
 
 .about-me-container .skills-container {
     margin-top: 0;
-}
-
-.circle{
-    position: absolute;
-    border-radius: 50%;
-    // background: #ff9131;
-    animation: ripple 15s infinite;
-    box-shadow: 0px 0px 6px 0px #ff9131;
-}
-
-.small{
-    width: 200px;
-    height: 200px;
-    left: 95vw;
-    bottom: -1100px;
-    background-color: #ff9131;
-}
-
-.medium{
-    width: 400px;
-    height: 400px;
-    left: 90vw;
-    bottom: -1200px;
-    background: #1a1a1a;
-}
-
-.large{
-    width: 600px;
-    height: 600px;
-    left: 85vw;
-    bottom: -1300px;
-}
-
-.xlarge{
-    width: 800px;
-    height: 800px;
-    left: 80vw;
-    bottom: -1400px;
-}
-
-.xxlarge{
-    width: 1000px;
-    height: 1000px;
-    left: 75vw;
-    bottom: -1500px;
-}
-
-.xxxlarge{
-    width: 1200px;
-    height: 1200px;
-    left: 70vw;
-    bottom: -1600px;
-}
-
-.xxxxlarge{
-    width: 1400px;
-    height: 1400px;
-    left: 65vw;
-    bottom: -1700px;
-}
-
-.shade1{
-    opacity: 0.2;
-}
-.shade2{
-    opacity: 0.5;
-}
-
-.shade3{
-    opacity: 0.7;
-}
-
-.shade4{
-    opacity: 0.8;
-}
-
-.shade5{
-    opacity: 0.9;
-}
-
-@keyframes ripple{
-    0%{
-        transform: scale(0.8);
-    }
-
-    50%{
-        transform: scale(1.2);
-    }
-
-    100%{
-        transform: scale(0.8);
-}
 }

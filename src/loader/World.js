@@ -24,7 +24,7 @@ class World {
     loop = new Loop(camera, scene, renderer);
     container.append(renderer.domElement);
     // Light Instance, with optional light helper
-    const { light, lightHelper } = createLights("white");
+    const { light, lightHelper } = createLights("azure");
     loop.updatables.push(light);
     scene.add(light);
     
