@@ -3,14 +3,39 @@
   <div>
     <nav-bar />
     <hero-section @trigger-show="triggerAboutMe"></hero-section>
-      <about-section :hideContent="hideContent"></about-section>
+    <div v-if="!hideContent">
+      <about-section
+      :hideContent="hideContent"
+      :hasCard="true"
+      :header="'sapokode'"
+      >
+        <template v-slot:center>
+          <employee-card
+          :fullName="fullName"
+          :jobTitle="jobTitle"
+          :aboutMe="aboutMe"
+          ></employee-card>
+        </template>
+      </about-section>
       <div class="centered-content">
         <resume-layout></resume-layout>
       </div>
-      <about-section :hideContent="hideContent"></about-section>
+      <about-section
+      :hideContent="hideContent"
+      :hasCard="true"
+      :header="'based-in'"
+      >
+        <template v-slot:center>
+          <time-board></time-board>
+        </template>
+      </about-section>
       <location-map></location-map>
-      <about-section :hideContent="hideContent"></about-section>
-
+      <about-section
+      :hideContent="hideContent"
+      :hasCard="false"
+      :header="'contact'"
+      ></about-section>
+    </div>
   </div>
 </template>
 
@@ -20,10 +45,13 @@ import Parallax from '@/components/base/Parallax.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
 import ResumeLayout from '@/components/layouts/ResumeLayout.vue';
 import NavBar from '@/components/base/NavBar.vue';
+import EmployeeCard from '@/components/base/EmployeeCard.vue';
+
 
 import '../assets/sections/home.scss'
 import AboutSection from '@/components/sections/AboutSection.vue';
 import LocationMap from '@/components/base/LocationMap.vue';
+import TimeBoard from '@/components/base/TimeBoard.vue';
 
 
 export default {
@@ -33,11 +61,13 @@ export default {
     ResumeLayout,
     NavBar,
     AboutSection,
-    LocationMap
+    LocationMap,
+    EmployeeCard,
+    TimeBoard
   },
   setup() {
 
-    const hideContent = ref(true);
+    const hideContent = ref(false);
 
     const fullName = ref('SapoKode');
     const jobTitle = ref('Software Engineer');

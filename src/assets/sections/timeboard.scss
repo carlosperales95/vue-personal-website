@@ -1,0 +1,26 @@
+
+#locations {
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    padding: 0;
+    margin-top: 15%;
+}
+
+#locations li {
+    width: 50%;
+    color: #d3c336;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+#locations li span {
+    width: 30px;
+    text-align: center;
+    border: solid 1px #5c501f;
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 15px;
+}

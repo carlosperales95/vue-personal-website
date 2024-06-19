@@ -9,7 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cloudinary/url-gen": "^1.19.0",
+    "@cloudinary/vue": "^1.12.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "cloudinary": "^2.2.0",
     "leaflet": "^1.9.4",
     "pinia": "^2.1.7",
     "three": "^0.165.0",

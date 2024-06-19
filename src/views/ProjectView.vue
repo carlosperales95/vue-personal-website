@@ -26,7 +26,7 @@
         </p>
       </div>
       <div class="cell view-container">
-        <img :src="showImageUrl">
+        <img class="project-img" :src="showImageUrl">
       </div>
       <div class="cell rowed justified">
         <div>
@@ -43,7 +43,7 @@
     </div>
     <div class="row">
       <div class="cell lens slim">
-        <img src="@/assets/hero/lens-girl.gif">
+        <img class="lens-img" src="@/assets/hero/lens-girl.gif">
       </div>
       <div class="proj-container cell">
         <ul>
