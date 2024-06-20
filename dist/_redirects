@@ -1,5 +1,2 @@
 # Redirects from what the browser requests to what we serve
-/                   /
-/photos/*           /photos
-/devlogs/*          /devlogs
-/projects/*         /projects
+/* /index.html 200
