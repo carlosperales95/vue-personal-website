@@ -1,12 +1,4 @@
 <template>
-  <!-- <header>
-    <div class="logo">SapoKode</div>
-    <nav class="navigation">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      </nav>
-  </header> -->
-
   <router-view />
 
   <!-- <footer class="footer">

@@ -1,7 +1,7 @@
 // Hero layout base styles
 
 .hero-container {
-    min-height: 100vh;
+    min-height: 78vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -240,14 +240,21 @@
 .socials-container {
     align-self: center;
     color: azure;
+    height: 100%;
+}
+
+.negative-colored .icon {
+    fill: black;
 }
 
 .socials-container ul {
+    height: 100%;
     margin: 0;
     margin-left: 4rem;
     display: flex;
     flex-direction: row;
     list-style: none;
+    align-items: center;
 
     @media only screen and (max-width: 600px) {
         margin-left: 1rem;

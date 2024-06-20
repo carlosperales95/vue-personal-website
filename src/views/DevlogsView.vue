@@ -1,6 +1,7 @@
 <template>
     <div class="devlogs-container">
         <div class="devlogs-sidebar">
+            <special-nav-link :pages="['home', 'projects', 'photography']"/>
             <h1> DEVLOGS </h1>
             <ul>
                 <li
@@ -31,6 +32,8 @@
 import { useDevlogsStore } from '@/stores/devlogs';
 import { storeToRefs } from 'pinia';
 import MarkdownRenderer from '@/components/layouts/MarkdownRenderer.vue';
+import SpecialNavLink from '@/components/base/SpecialNavLink.vue';
+
 
 import '../assets/sections/devlogs.scss'
 import ArticlesList from '@/components/base/ArticlesList.vue';
@@ -38,7 +41,8 @@ import ArticlesList from '@/components/base/ArticlesList.vue';
 export default {
     components: {
         MarkdownRenderer,
-        ArticlesList
+        ArticlesList,
+        SpecialNavLink
     },
     setup() {
         const devlogsStore = useDevlogsStore();

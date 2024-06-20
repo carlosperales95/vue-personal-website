@@ -1,16 +1,27 @@
-h1, a {
+.markdown-reader h1,
+.markdown-reader a,
+.devlogs-sidebar h1,
+.devlogs-sidebar a {
     color: #E67E22;
 }
 
-h3, h4 {
+.markdown-reader h3,
+.markdown-reader h4 {
     color: aquamarine;
 }
+.devlogs-sidebar {
+    max-width: 200px;
+}
 
-p {
+.devlogs-sidebar .filled-background {
+    font-size: 25px !important;
+}
+
+.markdown-reader p {
     color: azure;
 }
 
-pre {
+.markdown-reader pre {
     background-color: #1a1a1a;
     color: azure;
     padding: 1rem;

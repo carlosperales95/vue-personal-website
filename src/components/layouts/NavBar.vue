@@ -1,7 +1,7 @@
 <template>
     <IconsRepo/>
-    <div id="navbar" class="site-title">
-        <socials-bar/>
+    <div id="navbar" :class="barStyle === 'full' ? 'site-title' : 'site-title-bar'">
+        <socials-bar :class="barStyle === 'full' ? '' : 'negative-colored'"/>
         <div id="logo" :class="barStyle === 'full' ? 'intro' : 'intro-bar'">
             <div class="starburst">
                 <span>
@@ -33,38 +33,14 @@ export default {
 
         const barStyle = ref("full");
 
-        window.addEventListener("scroll", function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                changeStyle("full");
-            } else {
-                changeStyle("bar");
-            }
-        });
-
-
-        const changeStyle = function(mode) {
-            const header = document.getElementById('navbar');
-            // const logo = document.getElementById('logo');
-            if(!header) return;
-
-            if(mode == "full") {
-                header.classList.remove('site-title');
-                header.classList.add('site-title-bar');
-                // logo.classList.remove('intro');
-                // logo.classList.add('intro-bar');
-                barStyle.value = "bar";
-            } else {
-                header.classList.remove('site-title-bar');
-                header.classList.add('site-title');
-                // logo.classList.remove('intro-bar');
-                // logo.classList.add('intro');
-                barStyle.value = "full";
-            }
-        };
+        window.addEventListener("scroll", () =>
+            (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+                ? barStyle.value = "bar"
+                : barStyle.value = "full"
+        );
         
         return {
             barStyle,
-            changeStyle
         };
     },
 }
