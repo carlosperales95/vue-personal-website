@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import MarkdownRenderer from '../components/layouts/MarkdownRenderer.vue';
 import AlbumDetailsView from '../views/AlbumDetailsView.vue';
 import DevlogsView from '../views/DevlogsView.vue';
 import HomeView from '../views/HomeView.vue';
 import PhotosView from '../views/PhotosView.vue';
 import ProjectView from '../views/ProjectView.vue';
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -28,6 +30,11 @@ const router = createRouter({
       component: DevlogsView
     },
     {
+      path: '/devlogs/:id',
+      component: MarkdownRenderer,
+      props: true
+    },
+    {
       path: '/photography',
       name: 'photography',
       component: PhotosView
@@ -36,7 +43,7 @@ const router = createRouter({
       path: '/photography/:id',
       component: AlbumDetailsView,
       props: true
-  },
+    },
   ]
 })
 

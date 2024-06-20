@@ -1,7 +1,9 @@
 <template>
     <div class="header-wrapper">
         <router-link class="back-btn" to="/photography"> &lt; BACK</router-link>
-        <h1 class="album-name-title">{{album.name}}</h1>
+        <h1 class="album-name-title">
+            {{album.name}}
+        </h1>
     </div>
     <div class="viewer-container">
         <AdvancedImage v-if="selectedPhoto" :cldImg="selectedPhoto.elem"/>

@@ -56,7 +56,7 @@
         </ul>
       </div>
       <div class="cell">
-        <special-nav-link/>
+        <special-nav-link :pages="['home', 'devlogs', 'photography']"/>
       </div>
     </div>
   </div>
@@ -64,7 +64,7 @@
 
 <script>
 import { ref } from 'vue';
-import { useProjectsStore } from '@/stores/projects'
+import { useProjectsStore } from '@/stores/projects';
 import TechTag from '@/components/base/TechTag.vue';
 import SpecialNavLink from '@/components/base/SpecialNavLink.vue';
 

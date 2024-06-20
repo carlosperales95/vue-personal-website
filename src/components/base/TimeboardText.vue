@@ -13,9 +13,9 @@ import '../../assets/sections/timeboard.scss';
 import { computed, ref } from 'vue';
 
 export default {
-    // props: ['location'],
-    setup() {
-        const location = ref("amsterdam");
+    props: ['location'],
+    setup(props) {
+        const location = ref(props.location);
         const showTimeBoard = ref(false);
         const spreadWord = computed(() => {
             return location.value.trim('');

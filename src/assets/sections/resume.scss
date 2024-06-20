@@ -261,7 +261,6 @@ section {
 }
 
 .about-me-container p {
-    width: 60%;
     text-align: justify;
 }
 
@@ -281,4 +280,8 @@ section {
 
 .about-me-container .skills-container {
     margin-top: 0;
+}
+
+.text-wrapper {
+    // width: 60%;
 }

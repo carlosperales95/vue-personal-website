@@ -1,41 +1,5 @@
 <template>
-    <div class="about-me-container">
-        <p>
-            Fully committed to the philosophy of life-long learning, I’m a developer with a deep passion for complex problems.<br><br>
-            I enjoy finding simple and elegant solutions, both in backend and web development projects. The unique combination of creativity, logic, technology, and discovery hunger, drives my excitement and passion for code.<br><br>
-            When I’m not at my computer I like to spend my time traveling in the wild, mixing some songs or going out to take some great photos.
-        </p>
-        <div class="technologie">
-            <div class="skills-container">
-                <ul>
-                    <div class="skill-bar-wrapper">
-                        <svg class="skill-icon">
-                            <use xlink:href="#frontend"></use>
-                        </svg>
-                        <li class="fill-60">Frontend Power</li>
-                    </div>
-                    <div class="skill-bar-wrapper">
-                        <svg class="skill-icon">
-                            <use xlink:href="#backend"></use>
-                        </svg>
-                        <li class="fill-60">Backend Power</li>
-                    </div>
-                    <div class="skill-bar-wrapper">
-                        <svg class="skill-icon">
-                            <use xlink:href="#frontend"></use>
-                        </svg>
-                        <li class="fill-75">Charisma</li>
-                    </div>
-                    <div class="skill-bar-wrapper">
-                        <svg class="skill-icon">
-                            <use xlink:href="#luck"></use>
-                        </svg>
-                        <li class="fill-90">Luck</li>
-                    </div>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <about-me-layout :textContent="aboutTextContent"></about-me-layout>
     <div class="resume-container">
         <button @click="changeSection('skills')">
             Stats
@@ -63,7 +27,7 @@
                         </div>
                     </div>
                     <div class="stat-tech-title">
-                        {{techStack[mode]["title"].toUpperCase()}}
+                        {{ techStack[mode]["title"].toUpperCase() }}
                     </div>
                     <div class="tech-icons-wrapper">
                         <svg
@@ -87,15 +51,19 @@ import { ref, computed } from 'vue';
 import TimelineSection from '@/components/sections/TimelineSection.vue';
 import RippleCircles from '@/components/base/RippleCircles.vue';
 import PipBoy from '@/components/base/PipBoy.vue';
+
 import '../../assets/sections/resume.scss';
 import '../../assets/sections/ripple.scss';
+import AboutMeLayout from './AboutMeLayout.vue';
 
 
 export default {
+    props: ["techStack", "aboutTextContent"],
     components: {
         TimelineSection,
         PipBoy,
-        RippleCircles
+        RippleCircles,
+        AboutMeLayout
     },
     setup() {
         const section = ref('skills');
@@ -107,24 +75,6 @@ export default {
         };
 
         const mode = ref('frontend');
-        const techStack = ref({
-            frontend: {
-                title: 'frontend',
-                code: 'frontend',
-                techs: ['html', 'css', 'js', 'sass', 'vue', 'react', 'django', 'flask']
-
-            },
-            backend: {
-                title: 'backend',
-                code: 'backend',
-                techs: ['java', 'python', 'node', 'mysql', 'php', 'sqlite', 'spring', 'symfony' , 'postgres']
-            },
-            others: {
-                title: 'others',
-                code: 'luck',
-                techs: ['git', 'bash', 'docker']
-            }
-        });
 
 
 
@@ -138,7 +88,6 @@ export default {
 
         return {
             rolledSection,
-            techStack,
             mode,
             changeSection,
             changeStack

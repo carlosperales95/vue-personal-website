@@ -1,6 +1,7 @@
 <template>
     <div class="photos-container">
         <div class="photos-sidebar">
+            <special-nav-link :pages="['home', 'devlogs', 'projects']"/>
             <h1> ALBUMS </h1>
             <ul>
                 <li v-for="album in albums" :key="album.name">
@@ -25,12 +26,15 @@ import { useAlbumsStore } from '@/stores/albums';
 import { storeToRefs } from 'pinia';
 
 import '../assets/sections/gallery.scss';
-import { onMounted, computed } from 'vue';
+import { RouterLink } from 'vue-router';
+import SpecialNavLink from '@/components/base/SpecialNavLink.vue';
 
 export default {
     components: {
         // PhotoGallery,
-        AlbumSection
+        AlbumSection,
+        RouterLink,
+        SpecialNavLink
     },
     setup() {
         const albumsStore = useAlbumsStore();
@@ -41,10 +45,8 @@ export default {
             strips
         } = storeToRefs(albumsStore);
 
-        onMounted(() => {
-            albumsStore.getUrlAlbums();
-            albumsStore.divideIntoStrips();
-        });
+        albumsStore.getUrlAlbums();
+        albumsStore.divideIntoStrips();
 
         return {
             albums,

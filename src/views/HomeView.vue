@@ -1,12 +1,10 @@
 <template>
-  <!-- <parallax></parallax> -->
   <div>
     <nav-bar />
     <hero-section @trigger-show="triggerAboutMe"></hero-section>
     <div v-if="!hideContent">
-      <about-section
-      :hideContent="hideContent"
-      :hasCard="true"
+      <title-separator
+      :hasCenteredElem="true"
       :header="'sapokode'"
       >
         <template v-slot:center>
@@ -16,85 +14,80 @@
           :aboutMe="aboutMe"
           ></employee-card>
         </template>
-      </about-section>
+      </title-separator>
       <div class="centered-content">
-        <resume-layout></resume-layout>
+        <resume-layout
+          :techStack="techStack"
+          :aboutTextContent="aboutTextContent"
+        ></resume-layout>
       </div>
-      <about-section
-      :hideContent="hideContent"
-      :hasCard="true"
+      <title-separator
+      :hasCenteredElem="true"
       :header="'based-in'"
       >
         <template v-slot:center>
-          <time-board></time-board>
+          <timeboard-text :location="'amsterdam'"></timeboard-text>
         </template>
-      </about-section>
+      </title-separator>
       <location-map></location-map>
-      <about-section
-      :hideContent="hideContent"
-      :hasCard="false"
+      <title-separator
+      :hasCenteredElem="false"
       :header="'contact'"
-      ></about-section>
+      ></title-separator>
     </div>
   </div>
 </template>
 
 <script>
 import { ref, onMounted } from 'vue';
-import Parallax from '@/components/base/Parallax.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
 import ResumeLayout from '@/components/layouts/ResumeLayout.vue';
-import NavBar from '@/components/base/NavBar.vue';
+import NavBar from '@/components/layouts/NavBar.vue';
 import EmployeeCard from '@/components/base/EmployeeCard.vue';
 
 
 import '../assets/sections/home.scss'
-import AboutSection from '@/components/sections/AboutSection.vue';
+import TitleSeparator from '@/components/layouts/SplitTitleSeparator.vue';
 import LocationMap from '@/components/base/LocationMap.vue';
-import TimeBoard from '@/components/base/TimeBoard.vue';
+import TimeboardText from '@/components/base/TimeboardText.vue';
+
+import { useHomeStore } from '@/stores/home';
+import { storeToRefs } from 'pinia';
+
 
 
 export default {
   components: {
-    Parallax,
     HeroSection,
     ResumeLayout,
     NavBar,
-    AboutSection,
+    TitleSeparator,
     LocationMap,
     EmployeeCard,
-    TimeBoard
+    TimeboardText
   },
   setup() {
 
-    const hideContent = ref(false);
+    const hideContent = ref(true);
 
-    const fullName = ref('SapoKode');
-    const jobTitle = ref('Software Engineer');
-    const aboutMe = ref('The best results come from the sheer motivation to improve and taking care of your workers, not from the ideas of the stakeholders throwing money at you.');
-    
-    const projects = ref([
-      {
-        id: 1,
-        name: 'Project 1',
-        description: 'Description of Project 1',
-      },
-      {
-        id: 2,
-        name: 'Project 2',
-        description: 'Description of Project 2',
-      },
-    ]);
+    const homeStore = useHomeStore();
 
-    const email = ref('your.email@example.com');
-    const linkedin = ref('https://www.linkedin.com/in/your-linkedin-profile');
+        const {
+          fullName,
+          jobTitle,
+          aboutMe,
+          email,
+          linkedin,
+          aboutTextContent,
+          techStack
+        } = storeToRefs(homeStore);
     
 
     const triggerAboutMe = function() {
       hideContent.value = false;
       setTimeout(function() {
         window.scrollTo({
-          top: document.querySelector(".about-container").getBoundingClientRect().top + window.scrollY - 200,
+          top: document.querySelector(".separator-container").getBoundingClientRect().top + window.scrollY - 250,
           behavior: "smooth"});
         
         // document.querySelector(".about-container")
@@ -110,9 +103,10 @@ export default {
       fullName,
       jobTitle,
       aboutMe,
-      projects,
       email,
       linkedin,
+      techStack,
+      aboutTextContent,
       triggerAboutMe,
     };
   },

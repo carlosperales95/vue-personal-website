@@ -1,13 +1,19 @@
 <template>
     <div class="special-link-wrap">
-        <router-link class="filled-background" to="/">HOME</router-link>
-        <router-link class="filled-background" to="/">DEVLOGS</router-link>
-        <router-link class="filled-background" to="/">PHOTOGRAPHY</router-link>
+        <router-link
+            class="filled-background"
+            v-for="(page, index) in pages"
+            :key="index"
+            :to="page == 'home' ? '/' : `/${page}`"
+        >
+            {{ page.toUpperCase() }}
+        </router-link>
     </div>
 </template>
 
 <script>
 export default {
+    props: ['pages'],
     setup() {
         
     },
