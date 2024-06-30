@@ -1,16 +1,12 @@
 <template>
     <IconsRepo/>
-    <div id="navbar" :class="barStyle === 'full' ? 'site-title' : 'site-title-bar'">
+    <div id="navbar" class="wrapper-reverse karma" :class="barStyle === 'full' ? 'full' : 'bar'">
         <socials-bar :class="barStyle === 'full' ? '' : 'negative-colored'"/>
-        <div id="logo" :class="barStyle === 'full' ? 'intro' : 'intro-bar'">
+        <div id="logo" class="wrapper" :class="barStyle === 'full' ? 'nav-title' : 'nav-logo'">
             <div class="starburst">
-                <span>
-                    Hello!
-                </span>
+                <span> Hello! </span>
             </div>
-            <h2>
-                SapoKode
-            </h2>
+            <h2> SapoKode </h2>
             <p>
                 - Software Engineer
             </p>

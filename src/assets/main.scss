@@ -1,0 +1,200 @@
+// Breakpoints
+$mq-small: 600px;
+$mq-medium:  768px;
+$mq-large:   992px;
+$mq-huge:  1200px;
+
+// Paddings/Margins
+$base-spacing-tiny:   5px;
+$base-spacing-small:  10px;
+$base-spacing-medium: 20px;
+$base-spacing-large:  30px;
+$base-spacing-huge:   40px;
+$base-spacing-crazy:  50px;
+
+$base-spacing-unit: 5px;
+
+$z-indexes: (
+  "outdated-browser",
+  "modal",
+  "site-header",
+  "page-wrapper",
+  "site-footer"
+);
+
+// Colors
+$c-primary: #E67E22;
+$c-secondary: azure;
+$c-dark: #1a1a1a;
+$c-black: black;
+
+// Font sizes
+/// Normal text
+$f-tiny: 4px;
+$f-small: 12px;
+$f-medium: 20px;
+$f-large: 30px;
+$f-huge: 40px;
+$f-crazy: 55px;
+
+/// Titles
+$t-microscopic: 10px;
+$t-minuscule: 14px;
+$t-tiny: 18px;
+$t-small: 20px;
+$t-medium: 24px;
+$t-large: 30px;
+$t-huge: 40px;
+$t-crazy: 55px;
+
+@font-face {
+    font-family: 'Karma Future';
+    src: url('../fonts/karma/ka1.ttf');
+}
+
+// Utility Mixins
+
+@mixin mq($size, $direction: min-width, $media-type: only all) {
+    @if      $size == small  { @media #{$media-type} and (#{$direction}: $mq-small)  { @content; } }
+    @else if $size == medium { @media #{$media-type} and (#{$direction}: $mq-medium) { @content; } }
+    @else if $size == large  { @media #{$media-type} and (#{$direction}: $mq-large)  { @content; } }
+    @else if $size == huge   { @media #{$media-type} and (#{$direction}: $mq-huge)   { @content; } }
+    @else                    { @media #{$media-type} and (#{$direction}: $size)      { @content; } }
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+      &:before {
+          @include pseudo($pos: relative);
+          width: 100%;
+          padding-top: $padding;
+      }
+  } @else {
+      padding-top: $padding;
+  }
+}
+
+
+@mixin bordered($color, $width) {
+    border: $width solid $color;
+}
+
+
+@mixin bg-active($color) {
+    background-color: $color;
+}
+
+@mixin text-style($size: false, $color: false, $weight: false,  $lh: false) {
+  @if $size { font-size: $size; }
+  @if $color { color: $color; }
+  @if $weight { font-weight: $weight; }
+  @if $lh { line-height: $lh; }
+}
+
+@function z($name) {
+  @if index($z-indexes, $name) {
+      @return (length($z-indexes) - index($z-indexes, $name)) + 1;
+  } @else {
+      @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}';
+      @return null;
+  }
+}
+
+// add/remove margins
+@mixin push($spacing: $base-spacing-unit) { margin: $spacing; }
+@mixin push--top($spacing: $base-spacing-unit) { margin-top: $spacing; }
+@mixin push--bottom($spacing: $base-spacing-unit) { margin-bottom: $spacing; }
+@mixin push--left($spacing: $base-spacing-unit) { margin-left: $spacing; }
+@mixin push--right($spacing: $base-spacing-unit) { margin-right: $spacing; }
+@mixin push--ends($spacing: $base-spacing-unit) { margin: { top: $spacing; bottom: $spacing; } }
+@mixin push--sides($spacing: $base-spacing-unit) { margin: { left: $spacing; right: $spacing; } }
+
+@mixin push--auto { margin: { left: auto; right: auto; } }
+@mixin offset--sides($spacing: $base-spacing-unit) { margin: { left: -$spacing; right: -$spacing; } }
+
+@mixin flush { margin: 0; }
+@mixin flush--top { margin-top: 0; }
+@mixin flush--bottom { margin-bottom: 0; }
+@mixin flush--left { margin-left: 0; }
+@mixin flush--right { margin-right: 0; }
+@mixin flush--ends { margin: { top: 0; bottom: 0; } }
+@mixin flush--sides { margin: { left: 0; right: 0; } }
+
+
+// add/remove paddings
+@mixin soft($spacing: $base-spacing-unit) { padding: $spacing; }
+@mixin soft--top($spacing: $base-spacing-unit) { padding-top: $spacing; }
+@mixin soft--bottom($spacing: $base-spacing-unit) { padding-bottom: $spacing; }
+@mixin soft--left($spacing: $base-spacing-unit) { padding-left: $spacing; }
+@mixin soft--right($spacing: $base-spacing-unit) { padding-right: $spacing; }
+@mixin soft--ends($spacing: $base-spacing-unit) { padding: { top: $spacing; bottom: $spacing; } }
+@mixin soft--sides($spacing: $base-spacing-unit) { padding: { left: $spacing; right: $spacing; } }
+
+@mixin hard { padding: 0; }
+@mixin hard--top { padding-top: 0; }
+@mixin hard--bottom { padding-bottom: 0; }
+@mixin hard--left { padding-left: 0; }
+@mixin hard--right { padding-right: 0; }
+@mixin hard--ends { padding: { top: 0; bottom: 0; } }
+@mixin hard--sides { padding: { left: 0; right: 0; } }
+
+@mixin flexed($direction: row, $align: inherit, $justify: inherit, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    align-content: $align;
+    justify-content: $justify;
+    flex-wrap: $wrap;
+}
+
+@mixin size($height: auto, $width: auto) {
+    height: $height;
+    width: $width;
+}
+
+@mixin pos-absolute($z, $top, $right, $bottom, $left) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: $z;
+}
+
+// Style mixins
+@mixin font-source-karma($size: false, $color: false, $weight: false,  $lh: false) {
+  font-family: 'Karma Future';
+  @include text-style($size, $color, $weight, $lh);
+}
+
+@mixin wrapper($padding: auto, $margin: auto, $direction: row, $item-align: auto, $content-justify: inherit) {
+  @include size($width: 100%, $height: 100%);
+  @include flexed($direction: $direction);
+  align-items: $item-align;
+  justify-content: $content-justify;
+  padding: $padding;
+  margin: $margin;
+
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 22px;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+#app {
+  overflow: hidden;
+}

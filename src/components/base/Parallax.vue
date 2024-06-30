@@ -1,5 +1,5 @@
 <template>
-     <div class="log" @mousemove="parallax">
+    <div class="log" @mousemove="parallax">
       <img
         class="layer layer-1"
         src="../../assets/parallax/granda-back.jpg"
