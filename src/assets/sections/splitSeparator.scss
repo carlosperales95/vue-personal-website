@@ -1,10 +1,11 @@
+@import "../main.scss";
+
 // Presentation card area
 
 .separator-container {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    
 }
 
 
@@ -12,6 +13,12 @@
     max-width: 60vw;
     margin: 0 auto;
     // padding: 20px;
+
+    @include mq(small, max-width) {
+        position: relative;
+        z-index: 2;
+        background-color: $c-dark;
+    }
 }
 
 .separator-row {
@@ -23,10 +30,11 @@
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
-    @media only screen and (max-width: 600px) {
-        padding: 0;
+    @include mq(small, max-width) {
+        // padding: 0;
         margin-left: 1rem;
     }
+
 }
 
 .separator-row h1 {
@@ -34,8 +42,17 @@
     font-size: 290px;
     font-weight: bold;
     line-height: 5rem;
-    @media only screen and (max-width: 600px) {
-        font-size: 26px;
+
+    @include mq(small, max-width) {
+        @include text-style($size: $t-crazy);
+        margin: 0.1rem;
+        margin-top: 0 !important;
+    }
+
+    @include mq(small) {
+        @include text-style($size: $t-minuscule);
+        margin: 0.1rem;
+        margin-top: 0 !important;
     }
 }
 
@@ -47,21 +64,38 @@
     position: relative;
     overflow-y: hidden;
     z-index: 2;
+
+    @include mq(small, max-width) {
+        height: 4rem;
+    }
 }
 
 .separator-bottom {
     width: 100%;
     overflow: hidden;
     display: flex;
+
+    @include mq(small, max-width) {
+        height: 4rem;
+        z-index: 2;
+    }
 }
 
 .separator-top h1 {
     margin-top: 6rem;
+
+    @include mq(small, max-width) {
+        margin-top: 1rem !important;
+    }
 }
 
 .separator-bottom h1 {
     color: #E67E22;
     margin-top: -4rem;
+
+    @include mq(small, max-width) {
+        margin-top: -3rem !important;
+    }
 }
 
 .boutsec {
@@ -84,6 +118,10 @@
         width: 100px;
         height: 100px;
         font-size: 5px;
+        display: none;
+    }
+
+    @include mq(small, max-width) {
         display: none;
     }
 }

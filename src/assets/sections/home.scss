@@ -293,8 +293,8 @@
 
 .links {
     @include font-source-karma;
-    
-    margin: 2rem 5rem 0 5rem;
+
+    margin: 2rem 20% 0 20%;
     text-align: left;
     overflow: hidden;
 
@@ -334,7 +334,7 @@
 
         margin-top: 4rem;
         filter: blur(2px);
-        
+
         canvas {
             width: 100% !important;
         }
@@ -713,6 +713,16 @@ section {
 
 .about-me-container p {
     text-align: justify;
+
+    @include mq(small, max-width) {
+        @include text-style($size: $t-small);
+    }
+}
+
+.about-me-container .container {
+    @include mq(small, max-width) {
+        flex-direction: column;
+    }
 }
 
 .about-me-container ul {
@@ -751,6 +761,9 @@ section {
     width: 100%;
     height: auto;
     z-index: 20;
+    @include mq(small, max-width) {
+        margin-top: 2rem;
+    }
 }
 
 a.leaflet-control-zoom-in,
@@ -782,6 +795,16 @@ a.leaflet-control-zoom-out {
 
 .prompt-separator {
     font-size: 50px;
+    @include mq(small, max-width) {
+        display: none;
+    }
+}
+
+.location-prompt {
+    @include mq(small, max-width) {
+        margin-top: 1rem;
+        font-size: $t-minuscule;
+    }
 }
 
 .location-container {
@@ -791,6 +814,10 @@ a.leaflet-control-zoom-out {
     width: 80%;
     margin: auto;
     align-items: center;
+
+    @include mq(small, max-width) {
+        flex-direction: column;
+    }
 }
 
 .location-wrapper {
@@ -798,6 +825,10 @@ a.leaflet-control-zoom-out {
     justify-content: space-around;
     list-style: none;
     width: 60%;
+    @include mq(small, max-width) {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 }
 
 .location-item {
@@ -807,6 +838,10 @@ a.leaflet-control-zoom-out {
     border-radius: 10px;
     font-weight: bold;
     transition: background-color .3s ease-in;
+
+    @include mq(small, max-width) {
+        font-size: $t-minuscule;
+    }
 }
 
 .location-item:hover {

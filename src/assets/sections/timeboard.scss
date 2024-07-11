@@ -1,3 +1,4 @@
+@import "../main.scss";
 
 #locations {
     width: 100%;
@@ -5,6 +6,9 @@
     z-index: 4;
     padding: 0;
     margin-top: 15%;
+    @include mq(small, max-width) {
+        margin-top: 22%;
+    }
 }
 
 #locations li {
@@ -23,4 +27,9 @@
     background-color: #1a1a1a;
     padding: 1rem;
     border-radius: 15px;
+
+    @include mq(small, max-width) {
+        width: 20px;
+        padding: 0.5rem;
+    }
 }

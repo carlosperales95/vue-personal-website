@@ -24,7 +24,7 @@ export default {
         const albumUrl = computed(() => {
             return `/photography/${props.album.name}`;
         });
-        
+
         return {
             albumUrl
         }
