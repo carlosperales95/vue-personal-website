@@ -1,8 +1,14 @@
+@import "../main.scss";
+
 .markdown-reader h1,
 .markdown-reader a,
 .devlogs-sidebar h1,
 .devlogs-sidebar a {
     color: #E67E22;
+
+    @include mq(small, max-width) {
+        @include text-style($size: $f-medium);
+    }
 }
 
 .markdown-reader h3,
@@ -11,6 +17,9 @@
 }
 .devlogs-sidebar {
     max-width: 200px;
+    @include mq(small, max-width) {
+        max-width: 80px;
+    }
 }
 
 .devlogs-sidebar .filled-background {
@@ -45,11 +54,17 @@
     text-align: center;
     padding: 2rem;
     background-color: black;
+    @include mq(small, max-width) {
+        display: none;
+    }
 }
 
 .devlogs-sidebar ul {
     list-style-type: none;
     text-align: left;
+    @include mq(small, max-width) {
+        padding-left: 0;
+    }
 }
 
 .devlogs-sidebar li {
@@ -57,6 +72,9 @@
     justify-items: center;
     align-items: center;
     justify-content: space-between;
+    @include mq(small, max-width) {
+        @include text-style($size: $f-small);
+    }
 }
 
 .devlogs-sidebar li a {
@@ -122,6 +140,9 @@
     flex-direction: column;
     padding: 3rem;
     align-items: center;
+    @include mq(small, max-width) {
+        padding: 0.5rem;
+    }
 }
 
 .ar-list-header {
@@ -133,6 +154,10 @@
     border-radius: 10px;
     // border: 1px #E67E22 solid;
     width: 90%;
+
+    @include mq(small, max-width) {
+        padding: 0.5rem;
+    }
 }
 
 .ar-list-header input {
@@ -183,6 +208,11 @@
     gap: 40px;
     flex-wrap: wrap;
     border-radius: 10px;
+
+    @include mq(small, max-width) {
+        gap: 10px;
+        padding: 0.5rem;
+    }
 }
 
 .ar-list-wrapper li {
@@ -194,6 +224,12 @@
     border-radius: 5px;
     background-color: #242422;
     transition: background-color .5s ease-out;
+
+    @include mq(small, max-width) {
+        min-width: 5rem;
+        max-width: 8rem;
+        @include text-style($size: $f-small);
+    }
 }
 
 .ar-list-wrapper li:hover {

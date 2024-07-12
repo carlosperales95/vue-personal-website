@@ -408,7 +408,7 @@
         padding: 0;
         display: block;
         text-align: center;
-        margin: 20% auto 5% auto;
+        margin: 20% auto 50% auto;
     }
 }
 
@@ -709,6 +709,7 @@ section {
     justify-content: space-between;
     border-top: 1px solid azure;
     padding-top: 2rem;
+    margin-bottom: 20px;
 }
 
 .about-me-container p {
@@ -716,6 +717,7 @@ section {
 
     @include mq(small, max-width) {
         @include text-style($size: $t-small);
+        padding: 10px;
     }
 }
 
@@ -784,6 +786,9 @@ a.leaflet-control-zoom-out {
     top: 15rem;
     left: 95vw;
     border: none !important;
+    @include mq(small, max-width) {
+        left: 85vw;
+    }
 }
 
 .leaflet-layer,

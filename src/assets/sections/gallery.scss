@@ -1,3 +1,5 @@
+@import "../main.scss";
+
 .photos-container {
     display: flex;
 }
@@ -10,6 +12,11 @@
     padding: 2rem;
     background-color: black;
     max-width: 200px;
+
+
+    @include mq(small, max-width) {
+        display: none;
+    }
 }
 
 .photos-sidebar .filled-background {
@@ -96,6 +103,9 @@
             position: relative;
             overflow: hidden;
             // overflow-y: scroll;
+            @include mq(small, max-width) {
+                flex: 0 0 25%;
+            }
         }
     }
 }
@@ -161,6 +171,9 @@
         position: relative;
         width: 100%;
         font-weight: bold;
+        @include mq(small, max-width) {
+            @include text-style($size: $t-minuscule);
+        }
     }
     &:hover {
         .photo__image img {
