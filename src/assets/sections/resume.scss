@@ -1,3 +1,5 @@
+@import "../main.scss";
+
 .resume-container {
     display: flex;
     width: 100%;
@@ -93,11 +95,17 @@ section {
     // border: 1px solid azure;
     margin: 0;
     margin-left: 10vw;
-    @media only screen and (max-width: 600px) {
-        width: 100%;
-        margin-left: 0;
-        flex-direction: row-reverse;
-    }
+    // @media only screen and (max-width: 600px) {
+    //     width: 100%;
+    //     margin-left: 0;
+    //     flex-direction: row-reverse;
+    // }
+
+    // @include mq(small, max-width) {
+    //     width: 100%;
+    //     margin-left: 0;
+    //     flex-direction: column;
+    // }
 }
 
 .skills-container {
@@ -109,9 +117,11 @@ section {
     margin-top: 1rem;
     z-index: 2;
     @media only screen and (max-width: 600px) {
+        position: relative;
         z-index: 2;
         margin-right: 0;
-        display: none;
+        // filter: none;
+        // display: none;
         justify-self: flex-end;
         height: 500px;
     }

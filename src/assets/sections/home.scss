@@ -97,7 +97,8 @@
             @include flexed($align: center);
             @include size($width: 100%);
             
-            padding: 2rem 2rem 2rem 0.5rem;
+            // padding: 2rem 2rem 2rem 0.5rem;
+            padding: auto;
             justify-content: top;
             transition: padding 0.5s ease-in;
         
@@ -130,18 +131,16 @@
     @include wrapper($padding: 2rem, $item-align: end);
     @include mq(small, max-width) {
         @include text-style($size: $t-minuscule);
-        // background-color: #36d343;
+        padding: 1rem;
         p { display: none; }
     }
 
     @include mq(small) {
         @include text-style($size: $f-medium);
-        // background-color: #d3c336;
         p { display: none; }
     }
 
     @include mq(large) {
-        // background-color: #d33636;
         h2 {
             @include text-style($size: $f-huge, $lh: 100%);
             @include flush;
@@ -155,10 +154,9 @@
     }
 
     @include mq(huge) {
-        // background-color: #7bb48a;
         h2 { @include text-style($size: $f-crazy, $lh: 100%); }
     }
-    
+
 }
 
 
@@ -175,6 +173,12 @@
     align-items: flex-end;
     text-align: right;
     z-index: 999;
+
+   .nav-logo {
+        @include mq(small, max-width) {
+            padding: 1rem;
+        }
+   }
 }
 
 .nav-logo {
@@ -289,6 +293,7 @@
 
 .hero-size {
     @include size($height: 50vh);
+    margin-top: 2rem
 }
 
 .links {
@@ -391,31 +396,24 @@
 .action-container {
     @include size($width: 100%);
     @include flexed($direction: column);
-    
+
     padding: 0 2rem 2rem 2rem;
     min-height: 20%;
     text-align: center;
-
-    @media only screen and (max-width: 600px) {
-        @include size($width: 80%);
-        margin-top: 55%;
-        display: block;
-        text-align: center;
-    }
 
     @include mq(small, max-width) {
         @include size($width: 100%);
         padding: 0;
         display: block;
         text-align: center;
-        margin: 20% auto 50% auto;
+        margin: 0 auto 50% auto;
     }
 }
 
 .action-link {
     @include bordered(2px, $c-secondary);
     @include size(5rem, 30%);
-    
+
     color: $c-secondary;
 
     min-width: 25rem;
@@ -424,11 +422,10 @@
     align-self: center;
     line-height: 5rem;
 
-    @media only screen and (max-width: 600px) {
+    @include mq(small, max-width) {
         @include size($width: 80%);
-        
-        margin-top: 6rem;
-        
+        min-width: 12rem;
+        margin-top: 0;
         display: inline-block;
         font-size: 18px;
         position: relative;
@@ -561,7 +558,8 @@ section {
     // border: 3px solid #E67E22;
     margin-top: 1rem;
     z-index: 2;
-    @media only screen and (max-width: 600px) {
+
+    @include mq(small, max-width) {
         z-index: 2;
         margin-right: 0;
         display: none;
@@ -710,15 +708,15 @@ section {
     border-top: 1px solid azure;
     padding-top: 2rem;
     margin-bottom: 20px;
-}
-
-.about-me-container p {
-    text-align: justify;
 
     @include mq(small, max-width) {
         @include text-style($size: $t-small);
         padding: 10px;
     }
+}
+
+.about-me-container p {
+    text-align: justify;
 }
 
 .about-me-container .container {
@@ -746,7 +744,9 @@ section {
 }
 
 .text-wrapper {
-    // width: 60%;
+    @include mq(small, max-width) {
+        width: 95%;
+    }
 }
 
 // LOCATION
@@ -833,6 +833,7 @@ a.leaflet-control-zoom-out {
     @include mq(small, max-width) {
         flex-wrap: wrap;
         justify-content: space-between;
+        padding-left: 0;
     }
 }
 
