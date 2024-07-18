@@ -25,7 +25,7 @@ export default {
             {
                 id: 1,
                 name: "instagram",
-                url: 'https://www.instagram.com/cp.raw/',
+                url: 'https://www.instagram.com/cape.raw/',
             },
             {
                 id: 2,
