@@ -108,24 +108,24 @@ section {
     // }
 }
 
-.skills-container {
-    font-family: 'Chakra Petch', sans-serif;
-    color: azure;
-    width: 20vw;
-    border-radius: 20px;
-    // border: 3px solid #E67E22;
-    margin-top: 1rem;
-    z-index: 2;
-    @media only screen and (max-width: 600px) {
-        position: relative;
-        z-index: 2;
-        margin-right: 0;
-        // filter: none;
-        // display: none;
-        justify-self: flex-end;
-        height: 500px;
-    }
-}
+// .skills-container {
+//     font-family: 'Chakra Petch', sans-serif;
+//     color: azure;
+//     width: 20vw;
+//     border-radius: 20px;
+//     // border: 3px solid #E67E22;
+//     margin-top: 1rem;
+//     z-index: 2;
+//     @media only screen and (max-width: 600px) {
+//         position: relative;
+//         z-index: 2;
+//         margin-right: 0;
+//         // filter: none;
+//         // display: none;
+//         justify-self: flex-end;
+//         height: 500px;
+//     }
+// }
 
 .anothaone ul {
     list-style: none;

@@ -324,10 +324,12 @@
     @include size($width: 100%);
 
     z-index: 1;
+}
 
+.fall-back {
     @media only screen and (max-width: 600px) {
         @include pos-absolute(1, auto, auto, 2%, auto);
-        @include size($width: 100%);
+        // @include size($width: 100%);
 
         margin-top: 1rem;
         filter: blur(2px);
@@ -361,7 +363,8 @@
 
     @include mq(small, max-width) {
         @include size($width: 100%);
-
+        padding-right: 1rem;
+        font-size: $t-medium;
         margin-top: 10rem;
     }
 }
@@ -546,7 +549,7 @@ section {
     @media only screen and (max-width: 600px) {
         width: 100%;
         margin-left: 0;
-        flex-direction: row-reverse;
+        flex-direction: column;
     }
 }
 
@@ -555,18 +558,62 @@ section {
     color: azure;
     width: 20vw;
     border-radius: 20px;
-    // border: 3px solid #E67E22;
     margin-top: 1rem;
     z-index: 2;
 
     @include mq(small, max-width) {
         z-index: 2;
         margin-right: 0;
-        display: none;
         justify-self: flex-end;
         height: 500px;
+        width: 100%;
+        background-color: #1a1a1abd;
+        padding: 0.5rem;
+        
+        .tech-icons-wrapper {
+            gap: 10px;
+        }
+
+        .tech-icon {
+            width: 30px;
+            height: 30px;
+        }
     }
 }
+
+.technologie {
+    width: 100%;
+}
+
+.techs-container {
+    font-family: 'Chakra Petch', sans-serif;
+    color: azure;
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 1rem;
+    
+    @include mq(small, max-width) {
+        width: 100%;
+    }
+}
+
+.techs-container ul {
+    @include mq(small, max-width) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .skill-bar-wrapper li {
+            font-size: $t-minuscule;
+            padding: 0.4rem;
+            min-width: 80px;
+        }
+        .skill-bar-wrapper .skill-icon {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
 
 .anothaone ul {
     list-style: none;
@@ -746,6 +793,7 @@ section {
 .text-wrapper {
     @include mq(small, max-width) {
         width: 95%;
+        font-size: $t-minuscule;
     }
 }
 

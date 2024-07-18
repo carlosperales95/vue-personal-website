@@ -2,19 +2,21 @@
     <div class="hero-container">
         <div class="nav-container">
             <div class="links">
-                <bi-column class="hero-size">
+                <bi-column class="hero-size" :modifier="true">
                     <template v-slot:left>
                         <routing-list :pages="['projects', 'devlogs', 'photography']"></routing-list>
                     </template>
                     <template v-slot:right>
+                        <!-- <div class="fall-back"> -->
                         <div id="scene-container">
                             <!-- Three.js canvas will be inserted here -->
                         </div>
-                        <!-- <div class="art-credits">
-                            <img src="../../assets/hero/isoroom.gif"/>
-                            <h2>VOXELART BY:</h2>
-                            <a class="shoutout" href="https://www.behance.net/sircarma">SIRCARMA</a>
-                        </div> -->
+                            <!-- <div class="art-credits">
+                                <img src="../../assets/hero/isoroom.gif"/>
+                                <h2>VOXELART BY:</h2>
+                                <a class="shoutout" href="https://www.behance.net/sircarma">SIRCARMA</a>
+                            </div> -->
+                        <!-- </div> -->
                     </template>
                 </bi-column>
                 <div class="action-container">

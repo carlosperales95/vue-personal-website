@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Sans);
+@import "../main.scss";
 
 ::-moz-selection{
   background: lightgreen;
@@ -23,7 +24,7 @@
 
   @media only screen and (max-width: 600px) {
     position: absolute;
-    margin-top: 1rem;
+    margin-top: 15rem;
     padding-left: 25px;
     z-index: 1;
     font-size: 3pt;

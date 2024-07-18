@@ -1,5 +1,5 @@
 <template>
-    <div class="skills-container">
+    <div class="techs-container">
         <ul>
             <div class="skill-bar-wrapper">
                 <svg class="skill-icon">
