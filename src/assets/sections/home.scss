@@ -537,6 +537,9 @@ section {
         width: 100%;
         padding: 0;
     }
+    @include mq(small, max-width) {
+        width: 100%;
+    }
 }
 
 .anothaone {
@@ -567,9 +570,7 @@ section {
         justify-self: flex-end;
         height: 500px;
         width: 100%;
-        background-color: #1a1a1abd;
-        padding: 0.5rem;
-        
+
         .tech-icons-wrapper {
             gap: 10px;
         }
@@ -577,6 +578,11 @@ section {
         .tech-icon {
             width: 30px;
             height: 30px;
+        }
+
+        ul {
+            padding: 0.5rem;
+            background-color: #1a1a1abd;
         }
     }
 }
@@ -602,10 +608,12 @@ section {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        gap: 5px;
+
         .skill-bar-wrapper li {
             font-size: $t-minuscule;
             padding: 0.4rem;
-            min-width: 80px;
+            min-width: 100px;
         }
         .skill-bar-wrapper .skill-icon {
             width: 30px;
@@ -648,6 +656,10 @@ section {
     display: flex;
     align-items: center;
     padding: 1rem 1rem 0rem 0.5rem;
+    @include mq(small, max-width) {
+        padding: 0.2rem;
+        gap: 10px;
+    }
 }
 
 .stat-bar-wrapper {
@@ -869,7 +881,9 @@ a.leaflet-control-zoom-out {
     align-items: center;
 
     @include mq(small, max-width) {
+        width: 100%;
         flex-direction: column;
+        margin: 0;
     }
 }
 

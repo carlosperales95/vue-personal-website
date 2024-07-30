@@ -31,6 +31,9 @@
     overflow: hidden;
     text-align: center;
 
+    @include mq(small, max-width) {
+    padding: 2rem 0 2rem 0;
+    }
 }
 
 .separator-row h1 {
