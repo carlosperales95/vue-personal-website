@@ -18,11 +18,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed } from 'vue';
 import SkillsList from '@/components/base/SkillsList.vue';
 import BiColumn from './BiColumn.vue';
 
 const props = defineProps(['location']);
 
-const textContent = ref(props.textContent.split(". "));
+const textContent = computed(() => props.textContent?.split(". ") || "");
 </script>

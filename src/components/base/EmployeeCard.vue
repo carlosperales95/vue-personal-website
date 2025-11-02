@@ -1,5 +1,5 @@
 <template>
-    <div class="about boutsec">
+    <div class="about boutsec" ref="aboutsec">
         <div class="employee-card">
             <h1>HELLO my name is</h1>
             <div class="employee-info">
@@ -21,14 +21,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, toRef } from 'vue';
+import { ref, onMounted, useTemplateRef } from 'vue';
+
 
 const props = defineProps(['fullName', 'jobTitle', 'aboutMe']);
 const scrollAmount = ref(0);
 const elemTop = ref(0);
+const elem = useTemplateRef('aboutsec');
+
 
 onMounted(() => {
-    elemTop.value = window.getComputedStyle(document.querySelector(".boutsec")).top;
+    elemTop.value = elem.value.top;
     document.addEventListener('wheel', (event) => {
         const DIVIDE_AMOUNT = 2;
         scrollAmount.value = event.deltaY / DIVIDE_AMOUNT;

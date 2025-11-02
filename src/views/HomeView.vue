@@ -1,39 +1,39 @@
 <template>
   <div>
-    <nav-bar />
-    <hero-section @trigger-show="triggerAboutMe"></hero-section>
+      <NavBar />
+      <HeroSection @trigger-show="triggerAboutMe"></HeroSection>
     <div v-if="!hideContent">
-      <title-separator
-      :hasCenteredElem="true"
-      :header="'sapokode'"
+      <TitleSeparator
+        :hasCenteredElem="true"
+        :header="'sapokode'"
       >
         <template v-slot:center>
-          <employee-card
+          <EmployeeCard
           :fullName="fullName"
           :jobTitle="jobTitle"
           :aboutMe="aboutMe"
-          ></employee-card>
+          />
         </template>
-      </title-separator>
+      </TitleSeparator>
       <div class="centered-content">
-        <resume-layout
+        <ResumeLayout
           :techStack="techStack"
           :aboutTextContent="aboutTextContent"
-        ></resume-layout>
+        />
       </div>
-      <title-separator
-      :hasCenteredElem="true"
-      :header="'based-in'"
+      <TitleSeparator
+        :hasCenteredElem="true"
+        :header="'based-in'"
       >
         <template v-slot:center>
-          <timeboard-text :location="'amsterdam'"></timeboard-text>
+          <TimeboardText :location="'amsterdam'"></TimeboardText>
         </template>
-      </title-separator>
-      <location-map></location-map>
-      <title-separator
-      :hasCenteredElem="false"
-      :header="'contact'"
-      ></title-separator>
+      </TitleSeparator>
+      <LocationMap />
+      <TitleSeparator
+        :hasCenteredElem="false"
+        :header="'contact'"
+      />
     </div>
   </div>
 </template>
@@ -56,7 +56,6 @@ import { storeToRefs } from 'pinia';
 
 
 const hideContent = ref(true);
-
 const homeStore = useHomeStore();
 
 const {

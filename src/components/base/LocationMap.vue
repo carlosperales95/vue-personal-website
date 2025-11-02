@@ -25,6 +25,8 @@ import { ref, onMounted } from 'vue';
 import RippleCircles from '@/components/base/RippleCircles.vue';
 import * as L from 'leaflet';
 import '../../assets/sections/location.scss';
+import 'leaflet/dist/leaflet.css';
+
 
 const map = ref(null);
 const selectedLocation = ref("amsterdam");
@@ -49,18 +51,20 @@ const locations = ref({
 
 onMounted(() => {
     map.value = L.map('map');
-    setMap();
 
-    L.tileLayer('https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
     ).addTo(map.value);
 
-    map.value.dragging.disable();
-    map.value.touchZoom.disable();
-    map.value.doubleClickZoom.disable();
-    map.value.scrollWheelZoom.disable();
-    map.value.boxZoom.disable();
-    map.value.keyboard.disable();
-    if (map.value.tap) map.value.tap.disable();
+    setMap();
+
+  // disable interactions
+  map.value.dragging.disable();
+  map.value.touchZoom.disable();
+  map.value.doubleClickZoom.disable();
+  map.value.scrollWheelZoom.disable();
+  map.value.boxZoom.disable();
+  map.value.keyboard.disable();
+  if (map.value.tap) map.value.tap.disable();
 });
 
 const setMap = function() {
