@@ -1,5 +1,5 @@
 <template>
-    <about-me-layout :textContent="aboutTextContent"></about-me-layout>
+    <AboutMeLayout :textContent="aboutTextContent"></AboutMeLayout>
     <div class="resume-container">
         <button @click="changeSection('skills')">
             Stats
@@ -8,10 +8,10 @@
             Experience
         </button>
     </div>
-    <ripple-circles></ripple-circles>
+    <RippleCircles></RippleCircles>
     <div class="sections" :class="{'alternative': rolledSection}">
         <div class="slider-section anothaone">
-            <pip-boy></pip-boy>
+            <PipBoy></PipBoy>
             <div class="skills-container">
                 <ul>
                     <div class="stat-bar-wrapper">
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="slider-section">
-            <timeline-section></timeline-section>
+            <TimelineSection></TimelineSection>
         </div>
     </div>
 </template>

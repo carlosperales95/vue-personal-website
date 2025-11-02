@@ -1,6 +1,6 @@
 <template>
     <div class="header-wrapper">
-        <router-link class="back-btn" to="/photography"> &lt; BACK</router-link>
+        <RouterLink class="back-btn" to="/photography"> &lt; BACK</RouterLink>
         <h1 class="album-name-title">
             {{album.name}}
         </h1>
@@ -24,7 +24,8 @@ import { useAlbumsStore } from '@/stores/albums';
 import '../assets/sections/albumdetail.scss';
 import { AdvancedImage } from '@cloudinary/vue';
 import { storeToRefs } from 'pinia';
-import { ref, defineProps, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
+import { RouterLink } from 'vue-router';
 
 const props = defineProps({
     id: String

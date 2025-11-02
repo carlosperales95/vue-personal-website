@@ -5,7 +5,7 @@
             <span class="blinking-cursor">|</span>
         </div>
 
-        <event-row
+        <EventRow
             :type="'start-container'"
             :class="{ 'revealed': line.started }"
             :clicked="line.started"
@@ -20,8 +20,8 @@
                         <use xlink:href="#baby"></use>
                     </svg>
             </template>
-        </event-row>
-        <event-row
+        </EventRow>
+        <EventRow
             v-for="event in events"
             :key="event.id"
             :class="{ 'revealed': event.show }"
@@ -40,8 +40,8 @@
                 <h5>{{ event.year }}</h5>
                 <p>{{ event.description }}</p>
             </template>
-        </event-row>
-        <event-row
+        </EventRow>
+        <EventRow
             :type="'end-container'"
             v-if="line.complete"
             :empty="true"
@@ -54,7 +54,7 @@
                     <use xlink:href="#calendar"></use>
                 </svg>
             </template>
-        </event-row>
+        </EventRow>
         <p> Text to finish the section that says something that makes sense</p>
     </section>
 </template>

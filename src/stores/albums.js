@@ -1,7 +1,7 @@
 import { Cloudinary } from '@cloudinary/url-gen';
 import { defineStore } from 'pinia';
 import { albumsIndex } from './albumsIndex';
-
+import { ref } from 'vue';
 
 export const useAlbumsStore = defineStore('albums', () => {
 
@@ -46,10 +46,13 @@ export const useAlbumsStore = defineStore('albums', () => {
             }
         ];
 
+        console.log("strips", strips);
+
         let count = 0;
         let currentStrip = 0;
         const divided = Math.floor(albums.value.length / 4);
-        console.log(albums.value.length / 4);
+        console.log("album_len", albums.value.length / 4);
+        console.log("div_len", divided);
         
         albums.value.forEach((currentVal, index) => {
             if(count >= divided && currentStrip < 4) {
@@ -59,7 +62,8 @@ export const useAlbumsStore = defineStore('albums', () => {
             strips[currentStrip].elems.push(currentVal);
             count++;
         });
-        strips.value = strips;
+        
+        return strips;
     };
 
     const getAlbum = (id) => {

@@ -36,16 +36,13 @@ onMounted(() => {
         const DIVIDE_AMOUNT = 2;
         scrollAmount.value = event.deltaY / DIVIDE_AMOUNT;
         
-        const elem = document.querySelector(".boutsec");
-        if(!elem.style.top) {
-            elem.style.top = elemTop.value;
+        if(!elem.value.style.top) elem.value.style.top = elemTop.value;
             
-        }
-        const newTop = parseInt(elem.style.top.replace("px", "")) - scrollAmount.value;
+        const newTop = parseInt(elem.value.style.top.replace("px", "")) - scrollAmount.value;
 
         if(newTop <= 500 && newTop >= -500) {
-            elem.style.top = newTop + "px";
-            elemTop.value = elem.style.top
+            elem.value.style.top = newTop + "px";
+            elemTop.value = elem.value.style.top
         }
     });
 });

@@ -1,5 +1,5 @@
 <template>
-    <router-link
+    <RouterLink
         :to="albumUrl"
         :album="album"
     >
@@ -7,14 +7,15 @@
             <AdvancedImage :cldImg="album.thumbnail.elem" />
         </div>
         <div class="photo__name">
-            {{album.name}}
+            {{ album.name }}
         </div>
-    </router-link>
+    </RouterLink>
 </template>
 
 <script setup>
 import { computed } from 'vue';
 import { AdvancedImage } from '@cloudinary/vue';
+import { RouterLink } from 'vue-router';
     
 const props = defineProps(["album"]);
 

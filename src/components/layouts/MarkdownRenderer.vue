@@ -2,7 +2,7 @@
     <!-- {{ markdown }} -->
     <!-- <textarea v-model="markdown"></textarea> -->
     <div>
-        <div class="back" @click="$emit('trigger-clear')">
+        <div class="back" @click="emit('trigger-clear')">
             &lt;
         </div>
         <div class="markdown-reader">

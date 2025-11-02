@@ -5,7 +5,7 @@
         <h4>0922 VER0.0</h4>
         <p>holaholaholahola</p>
         <h2 class="name-title">CARLOS PERALES</h2>
-        <router-link class="back-btn" to="/"> &lt; BACK</router-link>
+        <RouterLink class="back-btn" to="/"> &lt; BACK</RouterLink>
       </div>
       <div class="proj-container">
         <h4>PROJECTS</h4>
@@ -36,7 +36,7 @@
         <div>
           <h2>STACK:</h2>
           <div class="tech-section">
-            <tech-tag v-for="tech in selectedProject.technologies" :key="tech" :name="tech"></tech-tag>
+            <TechTag v-for="tech in selectedProject.technologies" :key="tech" :name="tech"></TechTag>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
         </ul>
       </div>
       <div class="cell">
-        <special-nav-link :pages="['home', 'devlogs', 'photography']"/>
+        <SpecialNavLink :pages="['home', 'devlogs', 'photography']"/>
       </div>
     </div>
   </div>
@@ -69,6 +69,7 @@ import TechTag from '@/components/base/TechTag.vue';
 import SpecialNavLink from '@/components/base/SpecialNavLink.vue';
 
 import '../assets/sections/projects.scss'
+import { RouterLink } from 'vue-router';
 
 const projectsStore = useProjectsStore();
 const projects = ref(projectsStore.projects);

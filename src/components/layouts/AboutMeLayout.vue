@@ -1,6 +1,6 @@
 <template>
     <div class="about-me-container">
-        <bi-column>
+        <BiColumn>
             <template v-slot:left>
                 <div class="text-wrapper">
                     <p v-for="(line, index) in textContent" :key="index">
@@ -10,10 +10,10 @@
             </template>
             <template v-slot:right>
                 <div class="technologie">
-                    <skills-list></skills-list>
+                    <SkillsList></SkillsList>
                 </div>
             </template>
-        </bi-column>
+        </BiColumn>
     </div>
 </template>
 

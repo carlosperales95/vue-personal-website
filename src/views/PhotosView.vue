@@ -1,21 +1,21 @@
 <template>
     <div class="photos-container">
         <div class="photos-sidebar">
-            <special-nav-link :pages="['home', 'devlogs', 'projects']"/>
+            <SpecialNavLink :pages="['home', 'devlogs', 'projects']"/>
             <h1> ALBUMS </h1>
             <ul>
                 <li v-for="album in albums" :key="album.name">
                     <span></span>
-                    <router-link
+                    <RouterLink
                         :to="`/photography/${album.name}`"
                         :album="album"
                     >
                         <p>{{album.name}}</p>
-                    </router-link>
+                    </RouterLink>
                 </li>
             </ul>
         </div>
-        <album-section :strips="strips" :albums="albums"></album-section>
+        <AlbumSection :strips="strips" :albums="albums"></AlbumSection>
     </div>
 </template>
 
@@ -39,6 +39,8 @@ const {
 } = storeToRefs(albumsStore);
 
 albumsStore.getUrlAlbums();
-albumsStore.divideIntoStrips();
+strips.value = albumsStore.divideIntoStrips();
 
+console.log(albums.value);
+console.log(strips.value);
 </script>

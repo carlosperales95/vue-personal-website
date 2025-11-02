@@ -2,9 +2,9 @@
     <div class="hero-container">
         <div class="nav-container">
             <div class="links">
-                <bi-column class="hero-size" :modifier="true">
+                <BiColumn class="hero-size" :modifier="true">
                     <template v-slot:left>
-                        <routing-list :pages="['projects', 'devlogs', 'photography']"></routing-list>
+                        <RoutingList :pages="['projects', 'devlogs', 'photography']"></RoutingList>
                     </template>
                     <template v-slot:right>
                         <!-- <div class="fall-back"> -->
@@ -18,9 +18,9 @@
                             </div> -->
                         <!-- </div> -->
                     </template>
-                </bi-column>
+                </BiColumn>
                 <div class="action-container">
-                    <a class="action-link filled-background" @click="$emit('trigger-show')">
+                    <a class="action-link filled-background" @click="emit('trigger-show')">
                         Learn more about me
                     </a>
                 </div>
@@ -37,7 +37,7 @@ import RoutingList from '../base/RoutingList.vue';
 
 import '../../assets/sections/hero.scss';
 
-const props = defineProps(['trigger-show']);
+const emit = defineEmits(['trigger-show']);
 
 onMounted(() => {
     const container = document.querySelector("#scene-container");

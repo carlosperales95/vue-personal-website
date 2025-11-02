@@ -11,7 +11,7 @@
                 v-for="album in strip.elems"
                 :key="album.name"
                 >
-                    <album-item :album="album"></album-item>
+                    <AlbumItem :album="album"></AlbumItem>
                 </div>
             </div>
         </div>

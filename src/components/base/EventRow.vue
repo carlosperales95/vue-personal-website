@@ -29,7 +29,7 @@ const emit = defineEmits(['click-button', 'start-button']);
 
 const clickButton = function() {
     if(props.type === 'event-container') {
-        context.emit('click-button', props.event.id + 1);
+        emit('click-button', props.event.id + 1);
     }
 
     if(props.type === 'start-container')

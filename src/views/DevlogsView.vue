@@ -1,7 +1,7 @@
 <template>
     <div class="devlogs-container">
         <div class="devlogs-sidebar">
-            <special-nav-link :pages="['home', 'projects', 'photography']"/>
+            <SpecialNavLink :pages="['home', 'projects', 'photography']"/>
             <h1> DEVLOGS </h1>
             <ul>
                 <li
@@ -14,17 +14,17 @@
                 </li>
             </ul>
         </div>
-        <markdown-renderer
+        <MarkdownRenderer
             v-if="mdFile"
             class="devlogs-main"
             :markdown="mdFile"
             @trigger-clear="clearArticle"
-        ></markdown-renderer>
-        <articles-list
+        ></MarkdownRenderer>
+        <ArticlesList
             v-else
             :articles="articles"
             @trigger-select="selectArticle"
-        ></articles-list>
+        ></ArticlesList>
     </div>
 </template>
 
