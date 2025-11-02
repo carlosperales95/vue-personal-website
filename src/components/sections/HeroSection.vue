@@ -29,7 +29,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { onMounted } from 'vue';
 import { World } from "../../loader/World.js";
 import BiColumn from '@/components/layouts/BiColumn.vue';
@@ -37,20 +37,13 @@ import RoutingList from '../base/RoutingList.vue';
 
 import '../../assets/sections/hero.scss';
 
-export default {
-    emits: ['trigger-show'],
-    components: {
-        RoutingList,
-        BiColumn,
-    },
-    setup() {
-        onMounted(() => {
-            const container = document.querySelector("#scene-container");
-            // Create an instance of the World app
-            const world = new World(container);
-            // Start the loop (produce a stream of frames)
-            world.start();
-        });
-    }
-}
+const props = defineProps(['trigger-show']);
+
+onMounted(() => {
+    const container = document.querySelector("#scene-container");
+    // Create an instance of the World app
+    const world = new World(container);
+    // Start the loop (produce a stream of frames)
+    world.start();
+});
 </script>

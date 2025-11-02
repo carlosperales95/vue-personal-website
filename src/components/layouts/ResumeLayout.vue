@@ -46,7 +46,7 @@
         </div>
     </div>
 </template>
-<script>
+<script setup>
 import { ref, computed } from 'vue';
 import TimelineSection from '@/components/sections/TimelineSection.vue';
 import RippleCircles from '@/components/base/RippleCircles.vue';
@@ -56,44 +56,25 @@ import '../../assets/sections/resume.scss';
 import '../../assets/sections/ripple.scss';
 import AboutMeLayout from './AboutMeLayout.vue';
 
+const props = defineProps(['techStack', 'aboutTextContext']);
 
-export default {
-    props: ["techStack", "aboutTextContent"],
-    components: {
-        TimelineSection,
-        PipBoy,
-        RippleCircles,
-        AboutMeLayout
-    },
-    setup() {
-        const section = ref('skills');
+const section = ref('skills');
 
-        const changeSection = (sec) => {
-            if(section.value === sec) return;
+const changeSection = (sec) => {
+    if(section.value === sec) return;
 
-            section.value = sec;
-        };
+    section.value = sec;
+};
 
-        const mode = ref('frontend');
+const mode = ref('frontend');
 
+const rolledSection = computed(() => {
+    return section.value === 'skills' ? false : true;
+});
 
-
-        const rolledSection = computed(() => {
-            return section.value === 'skills' ? false : true;
-        });
-
-        const changeStack = function(newMode) {
-            mode.value = newMode;
-        };
-
-        return {
-            rolledSection,
-            mode,
-            changeSection,
-            changeStack
-        }
-    },
-}
+const changeStack = function(newMode) {
+    mode.value = newMode;
+};
 </script>
 
 <style scoped>

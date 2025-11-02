@@ -58,63 +58,49 @@
         <p> Text to finish the section that says something that makes sense</p>
     </section>
 </template>
-<script>
+<script setup>
 import { ref, reactive } from 'vue';
 import { useProjectsStore } from '@/stores/projects'
 import EventRow from '../base/EventRow.vue';
 
 import '../../assets/sections/timeline.scss'
 
-export default {
-    components: {
-        EventRow,
-    },
-    setup() {
-        const projectsStore = useProjectsStore();
+const projectsStore = useProjectsStore();
 
-        const line = reactive({
-            started: false,
-            complete: false
+const line = reactive({
+    started: false,
+    complete: false
+});
+
+const events = ref(projectsStore.timelineEvents);
+
+const startTimeline = () => {
+    // For starter node, set line to started and reveal first event
+    line.started = true;
+    revealEvent(1);
+};
+
+const revealEvent = (id) => {
+    // id is current id + 1 emitted by eventRow
+    // Thus, we set the previous to clicked
+    // skip for first node wich emits id=1
+    if(id > 1) events.value.find(el => el.id === id - 1).clicked = true;
+
+    // If event is last node, set time line to complete
+    if(id - 1 === events.value.length) line.complete = true;
+    
+    // Find event from array using id. If no event fount, exit.
+    // Otherwise set show to true
+    const event = events.value.find(el => el.id === id);
+    if(!event) return;
+    event.show = true;
+    
+    // Get all array of event elements and smoothScroll to id
+    const elements = document.querySelectorAll('.marker');
+    if(!elements) return;
+    elements[id]
+        .scrollIntoView({
+            behavior: 'smooth',
         });
-
-        const events = ref(projectsStore.timelineEvents);
-
-        const startTimeline = () => {
-            // For starter node, set line to started and reveal first event
-            line.started = true;
-            revealEvent(1);
-        };
-
-        const revealEvent = (id) => {
-            // id is current id + 1 emitted by eventRow
-            // Thus, we set the previous to clicked
-            // skip for first node wich emits id=1
-            if(id > 1) events.value.find(el => el.id === id - 1).clicked = true;
-
-            // If event is last node, set time line to complete
-            if(id - 1 === events.value.length) line.complete = true;
-            
-            // Find event from array using id. If no event fount, exit.
-            // Otherwise set show to true
-            const event = events.value.find(el => el.id === id);
-            if(!event) return;
-            event.show = true;
-            
-            // Get all array of event elements and smoothScroll to id
-            const elements = document.querySelectorAll('.marker');
-            if(!elements) return;
-            elements[id]
-                .scrollIntoView({
-                    behavior: 'smooth',
-                });
-        };
-
-        return {
-            line,
-            events,
-            revealEvent,
-            startTimeline
-        }
-    },
-}
+};
 </script>

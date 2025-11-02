@@ -28,7 +28,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { useDevlogsStore } from '@/stores/devlogs';
 import { storeToRefs } from 'pinia';
 import MarkdownRenderer from '@/components/layouts/MarkdownRenderer.vue';
@@ -38,36 +38,20 @@ import SpecialNavLink from '@/components/base/SpecialNavLink.vue';
 import '../assets/sections/devlogs.scss'
 import ArticlesList from '@/components/base/ArticlesList.vue';
 
-export default {
-    components: {
-        MarkdownRenderer,
-        ArticlesList,
-        SpecialNavLink
-    },
-    setup() {
-        const devlogsStore = useDevlogsStore();
+const devlogsStore = useDevlogsStore();
 
-        const {
-            articles,
-            mdFile,
-        } = storeToRefs(devlogsStore);
+const {
+    articles,
+    mdFile,
+} = storeToRefs(devlogsStore);
 
-        devlogsStore.populateArticles();
+devlogsStore.populateArticles();
 
-        const selectArticle = function(evt, name) {
-            devlogsStore.getArticle(name);
-        };
+const selectArticle = function(evt, name) {
+    devlogsStore.getArticle(name);
+};
 
-        const clearArticle = function() {
-            devlogsStore.clearFile();
-        }
-
-        return {
-            mdFile,
-            articles,
-            selectArticle,
-            clearArticle
-        }
-    },
+const clearArticle = function() {
+    devlogsStore.clearFile();
 }
 </script>

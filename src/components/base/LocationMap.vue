@@ -20,69 +20,55 @@
         </div>
     </div>
 </template>
-<script>
+<script setup>
 import { ref, onMounted } from 'vue';
 import RippleCircles from '@/components/base/RippleCircles.vue';
 import * as L from 'leaflet';
 import '../../assets/sections/location.scss';
 
-export default {
-    components: {
-        RippleCircles
+const map = ref(null);
+const selectedLocation = ref("amsterdam");
+const locations = ref({
+    amsterdam: {
+        label: "amsterdam",
+        coords: [52.372, 4.899]
     },
-    setup() {
-        const map = ref(null);
-        const selectedLocation = ref("amsterdam");
-        const locations = ref({
-            amsterdam: {
-                label: "amsterdam",
-                coords: [52.372, 4.899]
-            },
-            bilbao: {
-                label: "bilbao",
-                coords: [43.262, -2.935]
-            },
-            uppsala: {
-                label: "uppsala",
-                coords: [59.858, 17.632]
-            },
-            bologna: {
-                label: "bologna",
-                coords: [44.498, 11.327]
-            }
-        });
-        
-        onMounted(() => {
-            map.value = L.map('map');
-            setMap();
-
-            L.tileLayer('https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
-            ).addTo(map.value);
-
-            map.value.dragging.disable();
-            map.value.touchZoom.disable();
-            map.value.doubleClickZoom.disable();
-            map.value.scrollWheelZoom.disable();
-            map.value.boxZoom.disable();
-            map.value.keyboard.disable();
-            if (map.value.tap) map.value.tap.disable();
-        });
-
-        const setMap = function() {
-            map.value.setView(locations.value[selectedLocation.value].coords, 14);
-        }
-
-        const onLocationChange = function(locName) {
-            selectedLocation.value = locName;
-            setMap();
-        };
-
-        
-        return {
-            locations,
-            selectedLocation,
-            onLocationChange
-        }
+    bilbao: {
+        label: "bilbao",
+        coords: [43.262, -2.935]
     },
+    uppsala: {
+        label: "uppsala",
+        coords: [59.858, 17.632]
+    },
+    bologna: {
+        label: "bologna",
+        coords: [44.498, 11.327]
+    }
+});
+
+onMounted(() => {
+    map.value = L.map('map');
+    setMap();
+
+    L.tileLayer('https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+    ).addTo(map.value);
+
+    map.value.dragging.disable();
+    map.value.touchZoom.disable();
+    map.value.doubleClickZoom.disable();
+    map.value.scrollWheelZoom.disable();
+    map.value.boxZoom.disable();
+    map.value.keyboard.disable();
+    if (map.value.tap) map.value.tap.disable();
+});
+
+const setMap = function() {
+    map.value.setView(locations.value[selectedLocation.value].coords, 14);
 }
+
+const onLocationChange = function(locName) {
+    selectedLocation.value = locName;
+    setMap();
+};
 </script>

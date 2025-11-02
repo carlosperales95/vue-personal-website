@@ -12,22 +12,13 @@
     </router-link>
 </template>
 
-<script>
-import { ref, computed, onMounted } from 'vue';
+<script setup>
+import { computed } from 'vue';
 import { AdvancedImage } from '@cloudinary/vue';
-export default {
-    props: ["album"],
-    components: {
-        AdvancedImage
-    },
-    setup(props) {
-        const albumUrl = computed(() => {
-            return `/photography/${props.album.name}`;
-        });
+    
+const props = defineProps(["album"]);
 
-        return {
-            albumUrl
-        }
-    },
-}
+const albumUrl = computed(() => {
+    return `/photography/${props.album.name}`;
+});
 </script>

@@ -17,17 +17,8 @@
         </div>
     </div>
 </template>
-<script>
-import { ref, computed, onMounted } from 'vue';
+<script setup>
 import AlbumItem from './AlbumItem.vue';
 
-export default {
-    props: ['albums', 'strips'],
-    components: {
-        AlbumItem
-    },
-    setup() {
-        
-    },
-}
+const props = defineProps(['albums', 'strips']);
 </script>

@@ -10,20 +10,14 @@
         </div>
     </div>
 </template>
-<script>
+<script setup>
 import { ref, computed } from 'vue';
 import {marked} from 'marked';
 
-export default {
-    props: ['markdown'],
-    emits: ['trigger-clear'],
-    setup(props) {
-        const markdownToHtml = computed(() => {
-            return marked(props.markdown);
-        })
-        return {
-            markdownToHtml
-        }
-    },
-}
+const emit = defineEmits(['trigger-clear']);
+const props = defineProps(['markdown']);
+
+const markdownToHtml = computed(() => {
+    return marked(props.markdown);
+});
 </script>

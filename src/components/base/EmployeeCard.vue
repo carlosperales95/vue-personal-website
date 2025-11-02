@@ -20,36 +20,32 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted, toRef } from 'vue';
 
-export default {
-    props: ['fullName', 'jobTitle', 'aboutMe'],
-    setup() {
-        const scrollAmount = ref(0);
-        const elemTop = ref(0);
+const props = defineProps(['fullName', 'jobTitle', 'aboutMe']);
+const scrollAmount = ref(0);
+const elemTop = ref(0);
 
-        onMounted(() => {
-            elemTop.value = window.getComputedStyle(document.querySelector(".boutsec")).top;
-            document.addEventListener('wheel', (event) => {
-                const DIVIDE_AMOUNT = 2;
-                scrollAmount.value = event.deltaY / DIVIDE_AMOUNT;
-                
-                const elem = document.querySelector(".boutsec");
-                if(!elem.style.top) {
-                    elem.style.top = elemTop.value;
-                    
-                }
-                const newTop = parseInt(elem.style.top.replace("px", "")) - scrollAmount.value;
+onMounted(() => {
+    elemTop.value = window.getComputedStyle(document.querySelector(".boutsec")).top;
+    document.addEventListener('wheel', (event) => {
+        const DIVIDE_AMOUNT = 2;
+        scrollAmount.value = event.deltaY / DIVIDE_AMOUNT;
+        
+        const elem = document.querySelector(".boutsec");
+        if(!elem.style.top) {
+            elem.style.top = elemTop.value;
+            
+        }
+        const newTop = parseInt(elem.style.top.replace("px", "")) - scrollAmount.value;
 
-                if(newTop <= 500 && newTop >= -500) {
-                    elem.style.top = newTop + "px";
-                    elemTop.value = elem.style.top
-                }
-            });
-        });
-    },
-}
+        if(newTop <= 500 && newTop >= -500) {
+            elem.style.top = newTop + "px";
+            elemTop.value = elem.style.top
+        }
+    });
+});
 </script>
 
 <style scoped>

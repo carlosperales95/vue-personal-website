@@ -19,10 +19,8 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import '../../assets/sections/splitSeparator.scss';
 
-export default {
-    props: ['hasCenteredElem', 'header'],
-};
+const props = defineProps(['hasCenteredElem', 'header']);
 </script>

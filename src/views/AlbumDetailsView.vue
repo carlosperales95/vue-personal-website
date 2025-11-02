@@ -19,48 +19,35 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { useAlbumsStore } from '@/stores/albums';
 import '../assets/sections/albumdetail.scss';
 import { AdvancedImage } from '@cloudinary/vue';
 import { storeToRefs } from 'pinia';
-import { ref, computed, onMounted } from 'vue';
+import { ref, defineProps, onMounted } from 'vue';
 
+const props = defineProps({
+    id: String
+});
 
-export default {
-    props: ['id'],
-    components: {
-        AdvancedImage
-    },
-    setup(props) {
-        
-        const albumsStore = useAlbumsStore();
-        const selectedPhoto = ref(null);
+const albumsStore = useAlbumsStore();
+const selectedPhoto = ref(null);
 
-        const {
-            albums,
-            selectedAlbum,
-            isLoading,
-            strips
-        } = storeToRefs(albumsStore);
+const {
+    albums,
+    selectedAlbum,
+    isLoading,
+    strips
+} = storeToRefs(albumsStore);
 
-        const album = albumsStore.getAlbum(props.id);
-        albumsStore.getSelectedAlbum();
-        
-        const selectPhoto = function(id) {
-            console.log(selectedAlbum.value.photos.filter(photo => photo.id == id)[0]);
-            selectedPhoto.value = selectedAlbum.value.photos.filter(photo => photo.id == id)[0];
-        }
+const album = albumsStore.getAlbum(props.id);
 
-        return {
-            album,
-            albums,
-            selectedAlbum,
-            isLoading,
-            strips,
-            selectedPhoto,
-            selectPhoto
-        }
-    },
+const selectPhoto = function(id) {
+    console.log(selectedAlbum.value.photos.filter(photo => photo.id == id)[0]);
+    selectedPhoto.value = selectedAlbum.value.photos.filter(photo => photo.id == id)[0];
 }
+
+onMounted(() => {
+    albumsStore.getSelectedAlbum();
+})
 </script>

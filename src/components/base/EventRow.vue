@@ -23,26 +23,18 @@
     </div>
 </template>
 
-<script>
+<script setup>
+const props = defineProps(['event', 'type', 'empty', 'clicked']);
+const emit = defineEmits(['click-button', 'start-button']);
 
-export default {
-    props: ['event', 'type', 'empty', 'clicked'],
-    emits: ['click-button', 'start-button'],
-    setup(props, context) {
-        const clickButton = function() {
-            if(props.type === 'event-container') {
-                context.emit('click-button', props.event.id + 1);
-            }
+const clickButton = function() {
+    if(props.type === 'event-container') {
+        context.emit('click-button', props.event.id + 1);
+    }
 
-            if(props.type === 'start-container')
-                context.emit('start-button');
-            window.scrollBy({ top: 600, behavior: "smooth"});
-            
-        };
-
-        return {
-            clickButton
-        };
-    },
-}
+    if(props.type === 'start-container')
+        emit('start-button');
+    window.scrollBy({ top: 600, behavior: "smooth"});
+    
+};
 </script>

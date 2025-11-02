@@ -19,7 +19,7 @@
     </div>
 </template>
 
-<script>
+<script setup>
 // import PhotoGallery from '@/components/base/PhotoGallery.vue';
 import AlbumSection from '@/components/base/AlbumSection.vue';
 import { useAlbumsStore } from '@/stores/albums';
@@ -29,30 +29,16 @@ import '../assets/sections/gallery.scss';
 import { RouterLink } from 'vue-router';
 import SpecialNavLink from '@/components/base/SpecialNavLink.vue';
 
-export default {
-    components: {
-        // PhotoGallery,
-        AlbumSection,
-        RouterLink,
-        SpecialNavLink
-    },
-    setup() {
-        const albumsStore = useAlbumsStore();
 
-        const {
-            albums,
-            isLoading,
-            strips
-        } = storeToRefs(albumsStore);
+const albumsStore = useAlbumsStore();
 
-        albumsStore.getUrlAlbums();
-        albumsStore.divideIntoStrips();
+const {
+    albums,
+    isLoading,
+    strips
+} = storeToRefs(albumsStore);
 
-        return {
-            albums,
-            isLoading,
-            strips
-        }
-    },
-}
+albumsStore.getUrlAlbums();
+albumsStore.divideIntoStrips();
+
 </script>

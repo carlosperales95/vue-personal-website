@@ -14,16 +14,8 @@
     </ul>
 </template>
 
-<script>
+<script setup>
 import { RouterLink, RouterView } from 'vue-router';
-export default {
-    props: ['pages'],
-    components: {
-        RouterLink,
-        RouterView
-    },
-    setup() {
-        
-    },
-}
+
+const props = defineProps(['pages']);
 </script>

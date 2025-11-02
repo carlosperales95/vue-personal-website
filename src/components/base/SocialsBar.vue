@@ -14,41 +14,31 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 
-export default {
-    components: {
+const socials = ref([
+    {
+        id: 1,
+        name: "instagram",
+        url: 'https://www.instagram.com/cape.raw/',
     },
-    setup() {
-        const socials = ref([
-            {
-                id: 1,
-                name: "instagram",
-                url: 'https://www.instagram.com/cape.raw/',
-            },
-            {
-                id: 2,
-                name: "linkedin",
-                url: 'https://www.linkedin.com/in/carlos-perales95',
-            },
-            {
-                id: 3,
-                name: "github",
-                url: 'https://github.com/carlosperales95',
-            },
-            {
-                id: 4,
-                name: "twitch",
-                url: 'https://www.twitch.tv/sapokode',
-            }
-        ]);
-
-        return {
-            socials,
-        }
+    {
+        id: 2,
+        name: "linkedin",
+        url: 'https://www.linkedin.com/in/carlos-perales95',
     },
-}
+    {
+        id: 3,
+        name: "github",
+        url: 'https://github.com/carlosperales95',
+    },
+    {
+        id: 4,
+        name: "twitch",
+        url: 'https://www.twitch.tv/sapokode',
+    }
+]);
 </script>
 
 <style scoped>

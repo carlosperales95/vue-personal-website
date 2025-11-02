@@ -38,7 +38,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted } from 'vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
 import ResumeLayout from '@/components/layouts/ResumeLayout.vue';
@@ -55,60 +55,32 @@ import { useHomeStore } from '@/stores/home';
 import { storeToRefs } from 'pinia';
 
 
+const hideContent = ref(true);
 
-export default {
-  components: {
-    HeroSection,
-    ResumeLayout,
-    NavBar,
-    TitleSeparator,
-    LocationMap,
-    EmployeeCard,
-    TimeboardText
-  },
-  setup() {
+const homeStore = useHomeStore();
 
-    const hideContent = ref(true);
-
-    const homeStore = useHomeStore();
-
-        const {
-          fullName,
-          jobTitle,
-          aboutMe,
-          email,
-          linkedin,
-          aboutTextContent,
-          techStack
-        } = storeToRefs(homeStore);
+const {
+  fullName,
+  jobTitle,
+  aboutMe,
+  email,
+  linkedin,
+  aboutTextContent,
+  techStack
+} = storeToRefs(homeStore);
     
 
-    const triggerAboutMe = function() {
-      hideContent.value = false;
-      setTimeout(function() {
-        window.scrollTo({
-          top: document.querySelector(".separator-container").getBoundingClientRect().top + window.scrollY - 250,
-          behavior: "smooth"});
-        
-        // document.querySelector(".about-container")
-        //   .scrollIntoView({
-        //       behavior: 'smooth'
-        //     });
-      }, 2000);
-    }
-
-
-    return {
-      hideContent,
-      fullName,
-      jobTitle,
-      aboutMe,
-      email,
-      linkedin,
-      techStack,
-      aboutTextContent,
-      triggerAboutMe,
-    };
-  },
-};
+const triggerAboutMe = function() {
+  hideContent.value = false;
+  setTimeout(function() {
+    window.scrollTo({
+      top: document.querySelector(".separator-container").getBoundingClientRect().top + window.scrollY - 250,
+      behavior: "smooth"});
+    
+    // document.querySelector(".about-container")
+    //   .scrollIntoView({
+    //       behavior: 'smooth'
+    //     });
+  }, 2000);
+}
 </script>

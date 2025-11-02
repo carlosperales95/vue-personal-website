@@ -2,12 +2,6 @@
   <router-view />
 </template>
 
-<script>
+<script setup>
 import { RouterLink, RouterView } from 'vue-router';
-export default {
-  components: {
-    RouterLink,
-    RouterView
-  },
-}
 </script>

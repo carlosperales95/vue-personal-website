@@ -17,22 +17,12 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import SkillsList from '@/components/base/SkillsList.vue';
 import BiColumn from './BiColumn.vue';
 
-export default {
-    props: ["textContent"],
-    components: {
-        SkillsList,
-        BiColumn
-    },
-    setup(props) {
-        const textContent = ref(props.textContent.split(". "));
-        return {
-            textContent
-        }
-    },
-}
+const props = defineProps(['location']);
+
+const textContent = ref(props.textContent.split(". "));
 </script>

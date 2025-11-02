@@ -12,7 +12,7 @@
                 <li
                     v-for="(article, index) in articles"
                     :key="index"
-                    @click="$emit('trigger-select', $event, article.name)">
+                    @click="emit('trigger-select', $event, article.name)">
                     <div class="ar-element">
                         <h3>
                             {{ article.title }}
@@ -28,13 +28,7 @@
         </div>
     </div>
 </template>
-<script>
-import { ref } from 'vue'
-
-export default {
-    emits: ['trigger-select'],
-    props: ["articles"],
-    setup() {
-    },
-}
+<script setup>
+const emit = defineEmits(['trigger-select']);
+const props = defineProps(["articles"]);
 </script>

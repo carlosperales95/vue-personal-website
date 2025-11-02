@@ -4,11 +4,6 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: ["name"],
-    setup() {
-        
-    },
-}
+<script setup>
+const props = defineProps(['name']);
 </script>

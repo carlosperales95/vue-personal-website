@@ -14,30 +14,17 @@
     </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import SocialsBar from '../base/SocialsBar.vue';
 import IconsRepo from '../icons/IconsRepo.vue';
 
-export default {
-    emits: ['trigger-bar'],
-    components: {
-        SocialsBar,
-        IconsRepo
-    },
-    setup() {
+const emit = defineEmits(['trigger-bar']);
+const barStyle = ref("full");
 
-        const barStyle = ref("full");
-
-        window.addEventListener("scroll", () =>
-            (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
-                ? barStyle.value = "bar"
-                : barStyle.value = "full"
-        );
-        
-        return {
-            barStyle,
-        };
-    },
-}
+window.addEventListener("scroll", () =>
+    (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)
+        ? barStyle.value = "bar"
+        : barStyle.value = "full"
+);
 </script>

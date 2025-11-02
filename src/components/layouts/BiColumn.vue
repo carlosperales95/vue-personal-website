@@ -11,12 +11,7 @@
     </div>
 </template>
 
-<script>
-export default {
-    emits: ['trigger-show'],
-    props: ['modifier'],
-    setup() {
-        
-    },
-}
+<script setup>
+const emit = defineEmits(['trigger-show']);
+const props = defineProps(['modifier']);
 </script>

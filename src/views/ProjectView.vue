@@ -62,7 +62,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import { useProjectsStore } from '@/stores/projects';
 import TechTag from '@/components/base/TechTag.vue';
@@ -70,40 +70,20 @@ import SpecialNavLink from '@/components/base/SpecialNavLink.vue';
 
 import '../assets/sections/projects.scss'
 
-
-export default {
-  components: {
-    TechTag,
-    SpecialNavLink
-  },
-  setup() {
-
-    const projectsStore = useProjectsStore();
-    const projects = ref(projectsStore.projects);
-    const frogASCII = projectsStore.frogASCII;
+const projectsStore = useProjectsStore();
+const projects = ref(projectsStore.projects);
+const frogASCII = projectsStore.frogASCII;
 
 
-    const text = projectsStore.frogText;
+const text = projectsStore.frogText;
 
-    const selectedProject = ref(projects.value[0]);
-    const showImageUrl = ref(new URL(`../assets/projects/${selectedProject.value.img_url}`, import.meta.url).href);
-
-
-    const changeImageUrl = (id) => {
-      selectedProject.value = projects.value.find(proj => proj.id === id);
-
-      showImageUrl.value = new URL(`../assets/projects/${selectedProject.value.img_url}`, import.meta.url).href;
-    };
+const selectedProject = ref(projects.value[0]);
+const showImageUrl = ref(new URL(`../assets/projects/${selectedProject.value.img_url}`, import.meta.url).href);
 
 
-    return {
-      frogASCII,
-      text,
-      projects,
-      showImageUrl,
-      selectedProject,
-      changeImageUrl
-    }
-  },
-}
+const changeImageUrl = (id) => {
+  selectedProject.value = projects.value.find(proj => proj.id === id);
+
+  showImageUrl.value = new URL(`../assets/projects/${selectedProject.value.img_url}`, import.meta.url).href;
+};
 </script>

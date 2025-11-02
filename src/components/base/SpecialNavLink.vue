@@ -11,13 +11,8 @@
     </div>
 </template>
 
-<script>
-export default {
-    props: ['pages'],
-    setup() {
-        
-    },
-}
+<script setup>
+const props = defineProps(['pages']);
 </script>
 
 <style scoped>
